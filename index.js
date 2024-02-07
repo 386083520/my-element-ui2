@@ -1,7 +1,8 @@
 console.log("my-element-ui2")
+import EllButton from "./Button.vue"
 
-function install() {
-    console.log("my-element-ui222")
+function install(Vue, opts = {}) {
+    Vue.component("EllButton", EllButton)
 }
 
 export default {
