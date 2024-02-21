@@ -1,10 +1,10 @@
 <template>
     <div class="ell-card">
         <div class="ell-card__header">
-            header
+            <slot name="header"></slot>
         </div>
         <div class="ell-card__body">
-            body
+            <slot></slot>
         </div>
     </div>
 </template>
