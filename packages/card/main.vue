@@ -1,6 +1,6 @@
 <template>
     <div class="ell-card">
-        <div class="ell-card__header">
+        <div class="ell-card__header" v-if="$slots.header">
             <slot name="header"></slot>
         </div>
         <div class="ell-card__body">
