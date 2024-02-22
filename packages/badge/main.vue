@@ -2,9 +2,15 @@
     <div class="ell-badge">
         <slot></slot>
         <sup
-        v-text="value"
-        :class="type ? 'ell-badge__content--' + type : null"
-        class="ell-badge__content is-fixed ">
+        v-text="content"
+        :class="[
+        type ? 'ell-badge__content--' + type : null,
+        {
+            'is-fixed': $slots.default,
+            'is-dot': isDot
+        }
+        ]"
+        class="ell-badge__content">
             8
         </sup>
     </div>
@@ -13,11 +19,24 @@
     export default {
         props: {
             value: [Number,String],
+            max: Number,
+            isDot: Boolean,
             type: {
                 type: String,
                 validator(val) {
                     return ['primay', 'success', 'warning', 'info', 'danger'].indexOf(val) > -1
                 }
+            }
+        },
+        computed: {
+            content() {
+                if(this.isDot)  return
+                const value = this.value
+                const max = this.max
+                if(typeof value === 'number' && max === 'number') {
+                    return max < value ? `${max}+` : value
+                }
+                return value
             }
         }
     }
@@ -43,6 +62,12 @@
         top: 0;
         right: 10px;
         transform: translateY(-50%) translateX(100%);
+    }
+    .ell-badge__content.is-dot {
+        height: 8px;
+        width: 8px;
+        padding: 0;
+        right: 5px;
     }
     .ell-badge__content--primary {
         background-color: #409EFF;
