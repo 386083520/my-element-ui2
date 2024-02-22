@@ -3,7 +3,7 @@
         <slot></slot>
         <sup
         v-text="content"
-        v-show="!hidden"
+        v-show="!hidden && (conent || isDot)"
         :class="[
         type ? 'ell-badge__content--' + type : null,
         {
