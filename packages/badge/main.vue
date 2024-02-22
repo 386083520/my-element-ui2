@@ -3,6 +3,7 @@
         <slot></slot>
         <sup
         v-text="content"
+        v-show="!hidden"
         :class="[
         type ? 'ell-badge__content--' + type : null,
         {
@@ -21,6 +22,7 @@
             value: [Number,String],
             max: Number,
             isDot: Boolean,
+            hidden: Boolean,
             type: {
                 type: String,
                 validator(val) {
