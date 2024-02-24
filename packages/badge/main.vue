@@ -43,13 +43,14 @@
         }
     }
 </script>
-<style>
+<style lang="scss">
+    @import "../theme-chalk/src/index.scss";
     .ell-badge {
         position: relative;
         display: inline-block;
     }
     .ell-badge__content {
-        background-color: #F56C6C;
+        background-color: $--color-danger;
         padding: 0 6px;
         border-radius: 10px;
         font-size: 12px;
@@ -72,15 +73,15 @@
         right: 5px;
     }
     .ell-badge__content--primary {
-        background-color: #409EFF;
+        background-color: $--color-primary;
     }
     .ell-badge__content--warning {
-        background-color: #E6A23C;
+        background-color: $--color-warning;
     }
     .ell-badge__content--info {
-        background-color: #909399;
+        background-color: $--color-info;
     }
     .ell-badge__content--success {
-        background-color: #67C23A;
+        background-color: $--color-success;
     }
 </style>
