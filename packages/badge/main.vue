@@ -45,7 +45,7 @@
 </script>
 <style lang="scss">
     @import "../theme-chalk/src/index.scss";
-    .ell-badge {
+    @include b(badge) {
         position: relative;
         display: inline-block;
     }
