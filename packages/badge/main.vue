@@ -70,17 +70,18 @@
             padding: 0;
             right: 5px;
         }
-        @include m(primary) {
-            background-color: $--color-primary;
+        @each $type in (primary, warning, info, success) {
+            @include m($type) {
+                @if $type == primary {
+                    background-color: $--color-primary;
+                } @else if $type == warning {
+                    background-color: $--color-warning;
+                } @else if $type == info {
+                    background-color: $--color-info;
+                } @else if $type == success {
+                    background-color: $--color-success;
+                }
+            }
         }
-    }
-    .ell-badge__content--warning {
-        background-color: $--color-warning;
-    }
-    .ell-badge__content--info {
-        background-color: $--color-info;
-    }
-    .ell-badge__content--success {
-        background-color: $--color-success;
     }
 </style>
