@@ -12,7 +12,6 @@
         }
         ]"
         class="ell-badge__content">
-            8
         </sup>
     </div>
 </template>
@@ -26,7 +25,7 @@
             type: {
                 type: String,
                 validator(val) {
-                    return ['primay', 'success', 'warning', 'info', 'danger'].indexOf(val) > -1
+                    return ['primary', 'success', 'warning', 'info', 'danger'].indexOf(val) > -1
                 }
             }
         },
@@ -49,7 +48,7 @@
         position: relative;
         display: inline-block;
     }
-    .ell-badge__content {
+    @include e(content) {
         background-color: $--color-danger;
         padding: 0 6px;
         border-radius: 10px;
@@ -59,12 +58,12 @@
         display: inline-block;
         line-height: 18px;
         border: 1px solid #fff;
-    }
-    .ell-badge__content.is-fixed {
-        position: absolute;
+        @include when(fixed) {
+            position: absolute;
         top: 0;
         right: 10px;
         transform: translateY(-50%) translateX(100%);
+        }
     }
     .ell-badge__content.is-dot {
         height: 8px;
