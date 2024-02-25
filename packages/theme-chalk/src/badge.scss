@@ -1,0 +1,42 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@include b(badge) {
+    position: relative;
+    display: inline-block;
+}
+@include e(content) {
+    background-color: $--color-danger;
+    padding: 0 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #fff;
+    height: 18px;
+    display: inline-block;
+    line-height: 18px;
+    border: 1px solid #fff;
+    @include when(fixed) {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        transform: translateY(-50%) translateX(100%);
+    }
+    @include when(dot) {
+        height: 8px;
+        width: 8px;
+        padding: 0;
+        right: 5px;
+    }
+    @each $type in (primary, warning, info, success) {
+        @include m($type) {
+            @if $type == primary {
+                background-color: $--color-primary;
+            } @else if $type == warning {
+                background-color: $--color-warning;
+            } @else if $type == info {
+                background-color: $--color-info;
+            } @else if $type == success {
+                background-color: $--color-success;
+            }
+        }
+    }
+}
