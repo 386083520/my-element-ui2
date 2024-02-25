@@ -16,3 +16,11 @@
         @content
     }
 }
+@mixin m($modifier) {
+    $currentSelector: #{& + "--" + $modifier};
+    @at-root {
+        #{$currentSelector} {
+            @content
+        }
+    }
+}

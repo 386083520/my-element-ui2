@@ -70,9 +70,9 @@
             padding: 0;
             right: 5px;
         }
-    }
-    .ell-badge__content--primary {
-        background-color: $--color-primary;
+        @include m(primary) {
+            background-color: $--color-primary;
+        }
     }
     .ell-badge__content--warning {
         background-color: $--color-warning;
