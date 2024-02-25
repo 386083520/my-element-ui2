@@ -19,19 +19,24 @@
         }
     }
 </script>
-<style>
-    .ell-card {
+<style lang="scss">
+    @import "../theme-chalk/src/index.scss";
+    @include b(card) {
         border: 1px solid #EBEEF5;
+        @include when(always-shadow) {
+            box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+        }
+        @include when(hover-shadow) {
+            &:hover {
+                box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+            }
+        }
     }
-    .ell-card.is-always-shadow,
-    .ell-card.is-hover-shadow:hover {
-        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
-    }
-    .ell-card__header {
+    @include e(header) {
         padding: 18px 20px;
         border-bottom: 1px solid #EBEEF5;
     }
-    .ell-card__body {
+    @include e(body) {
         padding: 20px;
     }
 </style>
