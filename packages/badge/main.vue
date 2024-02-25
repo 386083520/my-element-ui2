@@ -60,16 +60,16 @@
         border: 1px solid #fff;
         @include when(fixed) {
             position: absolute;
-        top: 0;
-        right: 10px;
-        transform: translateY(-50%) translateX(100%);
+            top: 0;
+            right: 10px;
+            transform: translateY(-50%) translateX(100%);
         }
-    }
-    .ell-badge__content.is-dot {
-        height: 8px;
-        width: 8px;
-        padding: 0;
-        right: 5px;
+        @include when(dot) {
+            height: 8px;
+            width: 8px;
+            padding: 0;
+            right: 5px;
+        }
     }
     .ell-badge__content--primary {
         background-color: $--color-primary;
