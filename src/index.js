@@ -1,10 +1,10 @@
 
-import EllButton from "../Button.vue"
-import EllCard from "../packages/card/index.js"
-import EllBadge from "../packages/badge/index.js"
+import Card from "../packages/card/index.js"
+import Badge from "../packages/badge/index.js"
+import Abc from "../packages/abc/index.js"
 
 const components = [
-       Card,
+   Card,
    Badge,
    Abc
 ]
