@@ -27,6 +27,13 @@ export default ${ComponentName}`
         name: 'ElTemp'
     }
 </script>`
+    },
+    {
+       filename: path.join('../../packages/theme-chalk/src', `${componentname}.scss`),
+       content: `@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@include b(${componentname}) {    
+}` 
     }
 ]
 
