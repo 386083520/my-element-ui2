@@ -6,16 +6,32 @@ const uppercamelcase = require('uppercamelcase')
 const PackagePath = path.resolve(__dirname, '../../packages', componentname)
 const ComponentName = uppercamelcase(componentname)
 
-const fileInfo =  {
-    filename: 'index.js',
-    content: `
-    import ${ComponentName} from './src/main.vue'
-    ${ComponentName}.install = function(Vue) {
-        Vue.component(${ComponentName}.name, ${ComponentName})
-    }
-    export default ${ComponentName}
-    `
+
+const Files = [
+    {
+        filename: 'index.js',
+        content: `import ${ComponentName} from './src/main.vue'
+${ComponentName}.install = function(Vue) {
+    Vue.component(${ComponentName}.name, ${ComponentName})
 }
+export default ${ComponentName}`
+    },
+    {
+        filename: 'src/main.vue',
+        content: `<template>
+    <div class="el-temp">
+    </div>
+</template>
+<script>
+    export default {
+        name: 'ElTemp'
+    }
+</script>`
+    }
+]
+
+Files.forEach(file => {
+    fileSave(path.join(PackagePath, file.filename)).write(file.content, 'utf8')
+})
 
 
-fileSave(path.join(PackagePath, fileInfo.filename)).write(fileInfo.content, 'utf8')
