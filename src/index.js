@@ -4,8 +4,9 @@ import EllCard from "../packages/card/index.js"
 import EllBadge from "../packages/badge/index.js"
 
 const components = [
-    EllCard,
-EllBadge
+       Card,
+   Badge,
+   Abc
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
