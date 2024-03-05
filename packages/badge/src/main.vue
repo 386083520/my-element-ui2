@@ -17,6 +17,7 @@
 </template>
 <script>
     export default {
+        name: 'EllBadge',
         props: {
             value: [Number,String],
             max: Number,
