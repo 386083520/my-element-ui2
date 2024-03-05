@@ -37,8 +37,16 @@ export default ${ComponentName}`
     }
 ]
 
+
+const componentsFile = require('../../components.json')
+if(componentsFile[componentname]) {
+    console.error(`${componentname} 已存在。`)
+    process.exit(1)
+}
+componentsFile[componentname] = '11'
+fileSave(path.join(__dirname, '../../components.json')).write(JSON.stringify(componentsFile, null, '  '))
+
+
 Files.forEach(file => {
     fileSave(path.join(PackagePath, file.filename)).write(file.content, 'utf8')
 })
-
-
