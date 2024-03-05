@@ -19,6 +19,7 @@
   "devDependencies": {
     "sass-loader": "7.1.0",
     "node-sass": "9.0.0",
-    "file-save": "0.2.0"
+    "file-save": "0.2.0",
+    "uppercamelcase": "1.1.0"
   }
 }
