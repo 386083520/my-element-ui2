@@ -4,3 +4,12 @@
   width: 50%;
   float: left;
 }
+[class*="ell-col-"] {
+  float: left;
+}
+
+@for $i from 0 through 24 {
+  .ell-col-#{$i} {
+    width: ($i * 100 * 1/24) * 1%;
+  }
+}
