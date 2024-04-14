@@ -19,12 +19,12 @@ export default ${ComponentName}`
     {
         filename: 'src/main.vue',
         content: `<template>
-    <div class="el-${componentname}">
+    <div class="ell-${componentname}">
     </div>
 </template>
 <script>
     export default {
-        name: 'El${ComponentName}'
+        name: 'Ell${ComponentName}'
     }
 </script>`
     },

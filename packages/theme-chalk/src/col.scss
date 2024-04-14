@@ -1,0 +1,6 @@
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+@include b(col) {
+  width: 50%;
+  float: left;
+}
