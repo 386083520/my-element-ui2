@@ -19,12 +19,12 @@ export default ${ComponentName}`
     {
         filename: 'src/main.vue',
         content: `<template>
-    <div class="el-temp">
+    <div class="el-${componentname}">
     </div>
 </template>
 <script>
     export default {
-        name: 'ElTemp'
+        name: 'El${ComponentName}'
     }
 </script>`
     },
@@ -33,7 +33,7 @@ export default ${ComponentName}`
        content: `@import "./common/var.scss";
 @import "./mixins/mixins.scss";
 @include b(${componentname}) {    
-}` 
+}`
     }
 ]
 
