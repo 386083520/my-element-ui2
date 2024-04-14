@@ -2,3 +2,8 @@
 @import "./mixins/mixins.scss";
 @include b(row) {
 }
+.ell-row::after {
+  clear: both;
+  display: table;
+  content: "";
+}
