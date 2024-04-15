@@ -13,4 +13,7 @@
   .ell-col-#{$i} {
     width: ($i * 100 * 1/24) * 1%;
   }
+  .ell-col-offset-#{$i} {
+    margin-left: ($i * 100 * 1/24) * 1%;
+  }
 }
