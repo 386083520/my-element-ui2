@@ -8,9 +8,15 @@ export default {
     },
     render(h) {
         let classList = []
+        let style = {}
+        if(this.$parent.gutter) {
+            style.paddingLeft = this.$parent.gutter/2 + 'px'
+            style.paddingRight = style.paddingLeft
+        }
         classList.push(`ell-col-${this.span}`)
         return h('div', {
-            class: [classList]
+            class: [classList],
+            style
         }, this.$slots.default);
     }
 }

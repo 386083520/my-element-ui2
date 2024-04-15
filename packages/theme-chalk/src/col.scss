@@ -6,6 +6,7 @@
 }
 [class*="ell-col-"] {
   float: left;
+  box-sizing: border-box;
 }
 
 @for $i from 0 through 24 {
