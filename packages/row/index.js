@@ -1,4 +1,4 @@
-import Row from './src/main.vue'
+import Row from './src/row.js'
 Row.install = function(Vue) {
     Vue.component(Row.name, Row)
 }
