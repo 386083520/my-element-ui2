@@ -14,10 +14,11 @@ export default {
             style.paddingLeft = this.$parent.gutter/2 + 'px'
             style.paddingRight = style.paddingLeft
         }
-        classList.push(`ell-col-${this.span}`)
-        if(this.offset) {
-            classList.push(`ell-col-offset-${this.offset}`)
-        }
+        ['span', 'offset'].forEach(prop => {
+            if(this[prop]) {
+                classList.push(prop !== 'span'? `ell-col-${prop}-${this[prop]}`:`ell-col-${this[prop]}`)
+            }
+        })
         return h('div', {
             class: [classList],
             style
