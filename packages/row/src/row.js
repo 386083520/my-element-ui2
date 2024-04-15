@@ -1,7 +1,12 @@
 export default {
     name: 'EllRow',
     props: {
-        gutter: Number
+        gutter: Number,
+        type: String,
+        justify: {
+            type: String,
+            default: 'start'
+        }
     },
     computed: {
         style() {
@@ -15,7 +20,11 @@ export default {
     },
     render(h) {
         return h('div', {
-            class: ['ell-row'],
+            class: ['ell-row',
+                this.justify !== 'start' ? 'is-justify-' + this.justify: '',
+                {
+                'ell-row--flex': this.type === 'flex'
+            }],
             style: this.style
         }, this.$slots.default)
     }
