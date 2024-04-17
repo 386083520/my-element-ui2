@@ -23,12 +23,12 @@ export default {
             if(this[prop]) {
                 classList.push(prop !== 'span'? `ell-col-${prop}-${this[prop]}`:`ell-col-${this[prop]}`)
             }
-        })
+        });
         ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
             if(typeof this[size] === 'number') {
                 classList.push(`ell-col-${size}-${this[size]}`)
             }
-        })
+        });
         return h('div', {
             class: [classList],
             style
