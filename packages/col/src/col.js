@@ -10,7 +10,9 @@ export default {
         sm: Number,
         md: Number,
         lg: Number,
-        xl: Number
+        xl: Number,
+        push: Number,
+        pull: Number
     },
     render(h) {
         let classList = []
@@ -19,7 +21,7 @@ export default {
             style.paddingLeft = this.$parent.gutter/2 + 'px'
             style.paddingRight = style.paddingLeft
         }
-        ['span', 'offset'].forEach(prop => {
+        ['span', 'offset', 'push', 'pull'].forEach(prop => {
             if(this[prop]) {
                 classList.push(prop !== 'span'? `ell-col-${prop}-${this[prop]}`:`ell-col-${this[prop]}`)
             }

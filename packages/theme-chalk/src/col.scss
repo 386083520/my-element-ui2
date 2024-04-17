@@ -16,6 +16,14 @@
   .ell-col-offset-#{$i} {
     margin-left: ($i * 100 * 1/24) * 1%;
   }
+  .ell-col-push-#{$i} {
+    position: relative;
+    left: ($i * 100 * 1/24) * 1%;
+  }
+  .ell-col-pull-#{$i} {
+    position: relative;
+    right: ($i * 100 * 1/24) * 1%;
+  }
 }
 
 
