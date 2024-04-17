@@ -17,3 +17,39 @@
     margin-left: ($i * 100 * 1/24) * 1%;
   }
 }
+
+@media only screen and (min-width: 1920px) {
+  @for $i from 0 through 24   {
+    .ell-col-xl-#{$i}  {
+      width: ($i * 100 * 1/24) * 1%;
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  @for $i from 0 through 24   {
+    .ell-col-lg-#{$i}  {
+      width: ($i * 100 * 1/24) * 1%;
+    }
+  }
+}
+@media only screen and (min-width: 992px) {
+  @for $i from 0 through 24   {
+    .ell-col-md-#{$i}  {
+      width: ($i * 100 * 1/24) * 1%;
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+  @for $i from 0 through 24   {
+    .ell-col-sm-#{$i}  {
+      width: ($i * 100 * 1/24) * 1%;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  @for $i from 0 through 24   {
+    .ell-col-xs-#{$i}  {
+      width: ($i * 100 * 1/24) * 1%;
+    }
+  }
+}
