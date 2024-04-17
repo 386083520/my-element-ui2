@@ -3,3 +3,16 @@ $--color-success: #67C23A;
 $--color-warning: #E6A23C;
 $--color-info: #909399;
 $--color-danger: #F56C6C;
+
+$--sm: 768px;
+$--md: 992px;
+$--lg: 1200px;
+$--xl: 1920px;
+
+$--breakpoints:(
+  'xs': (max-width: $--sm),
+  'sm': (min-width: $--sm),
+  'md': (min-width: $--md),
+  'lg': (min-width: $--lg),
+  'xl': (min-width: $--xl)
+)
