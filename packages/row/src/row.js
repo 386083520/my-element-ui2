@@ -6,7 +6,8 @@ export default {
         justify: {
             type: String,
             default: 'start'
-        }
+        },
+        align: String
     },
     computed: {
         style() {
@@ -22,6 +23,7 @@ export default {
         return h('div', {
             class: ['ell-row',
                 this.justify !== 'start' ? 'is-justify-' + this.justify: '',
+                this.align ? `is-align-${this.align}`: '',
                 {
                 'ell-row--flex': this.type === 'flex'
             }],
