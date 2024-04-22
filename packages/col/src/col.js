@@ -12,7 +12,11 @@ export default {
         lg: [Number, Object],
         xl: [Number, Object],
         push: Number,
-        pull: Number
+        pull: Number,
+        tag: {
+            type: String,
+            default: "div"
+        }
     },
     render(h) {
         let classList = []
@@ -40,7 +44,7 @@ export default {
                 })
             }
         });
-        return h('div', {
+        return h(this.tag, {
             class: [classList],
             style
         }, this.$slots.default);
