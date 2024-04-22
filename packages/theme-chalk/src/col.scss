@@ -32,6 +32,17 @@
     .ell-col-xs-#{$i}  {
       width: ($i * 100 * 1/24) * 1%;
     }
+    .ell-col-xs-offset-#{$i} {
+      margin-left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-xs-push-#{$i} {
+      position: relative;
+      left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-xs-pull-#{$i} {
+      position: relative;
+      right: ($i * 100 * 1/24) * 1%;
+    }
   }
 }
 
@@ -39,6 +50,17 @@
   @for $i from 0 through 24   {
     .ell-col-sm-#{$i}  {
       width: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-sm-offset-#{$i} {
+      margin-left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-sm-push-#{$i} {
+      position: relative;
+      left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-sm-pull-#{$i} {
+      position: relative;
+      right: ($i * 100 * 1/24) * 1%;
     }
   }
 }
@@ -48,6 +70,17 @@
     .ell-col-md-#{$i}  {
       width: ($i * 100 * 1/24) * 1%;
     }
+    .ell-col-md-offset-#{$i} {
+      margin-left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-md-push-#{$i} {
+      position: relative;
+      left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-md-pull-#{$i} {
+      position: relative;
+      right: ($i * 100 * 1/24) * 1%;
+    }
   }
 }
 
@@ -56,6 +89,17 @@
     .ell-col-lg-#{$i}  {
       width: ($i * 100 * 1/24) * 1%;
     }
+    .ell-col-lg-offset-#{$i} {
+      margin-left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-lg-push-#{$i} {
+      position: relative;
+      left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-lg-pull-#{$i} {
+      position: relative;
+      right: ($i * 100 * 1/24) * 1%;
+    }
   }
 }
 
@@ -63,6 +107,17 @@
   @for $i from 0 through 24   {
     .ell-col-xl-#{$i}  {
       width: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-xl-offset-#{$i} {
+      margin-left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-xl-push-#{$i} {
+      position: relative;
+      left: ($i * 100 * 1/24) * 1%;
+    }
+    .ell-col-xl-pull-#{$i} {
+      position: relative;
+      right: ($i * 100 * 1/24) * 1%;
     }
   }
 }

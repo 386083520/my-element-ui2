@@ -6,11 +6,11 @@ export default {
             default: 24
         },
         offset: Number,
-        xs: Number,
-        sm: Number,
-        md: Number,
-        lg: Number,
-        xl: Number,
+        xs: [Number, Object],
+        sm: [Number, Object],
+        md: [Number, Object],
+        lg: [Number, Object],
+        xl: [Number, Object],
         push: Number,
         pull: Number
     },
@@ -29,6 +29,15 @@ export default {
         ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
             if(typeof this[size] === 'number') {
                 classList.push(`ell-col-${size}-${this[size]}`)
+            }else  if(typeof this[size] === 'object') {
+                let props  = this[size]
+                Object.keys(props).forEach(prop  => {
+                    classList.push(
+                        prop !== 'span' // ell-col-sm-offset-4
+                        ? `ell-col-${size}-${prop}-${props[prop]}`
+                        : `ell-col-${size}-${props[prop]}`
+                    )
+                })
             }
         });
         return h('div', {
