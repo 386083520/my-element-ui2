@@ -1,4 +1,21 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(button) {    
+@include b(button) {
+  background: #fff;
+  border: 1px solid #DCDFE6;
+  color: #606266;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  &:hover {
+    color: #409EFF;
+    background-color: #ecf5ff;
+    border-color: #c6e2ff;
+  }
+  &:active {
+    color: #3a8ee6;
+    border-color: #3a8ee6;
+  }
 }
+
