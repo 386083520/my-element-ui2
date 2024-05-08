@@ -2,7 +2,8 @@
     <button class="ell-button" :class="[
         type? 'ell-button--' + type: '',
         {
-          'is-plain': plain
+          'is-plain': plain,
+          'is-round': round
         }
     ]">
       <slot></slot>
@@ -16,7 +17,8 @@
             type: String,
             default: 'default'
           },
-          plain: Boolean
+          plain: Boolean,
+          round: Boolean
       }
     }
 </script>
