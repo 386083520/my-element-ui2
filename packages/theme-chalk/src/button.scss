@@ -18,6 +18,19 @@
     border-color: #3a8ee6;
   }
 
+  @include when(plain) {
+    &:hover {
+      background: #FFF;
+      border-color: #409EFF;
+      color: #409EFF;
+    }
+    &:active {
+      color: #3a8ee6;
+      border-color: #3a8ee6;
+      background: #FFF;
+    }
+  }
+
   @include m(primary) {
     color: #FFF;
     background-color: #409EFF;
@@ -31,6 +44,21 @@
       background: #3a8ee6;
       border-color: #3a8ee6;
       color: #FFF;
+    }
+    @include when(plain) {
+      color: #409EFF;
+      background: #ecf5ff;
+      border-color: #b3d8ff;
+      &:hover {
+        background: #409EFF;
+        border-color: #409EFF;
+        color: #FFF;
+      }
+      &:active {
+        background: #3a8ee6;
+        border-color: #3a8ee6;
+        color: #FFF;
+      }
     }
   }
 
@@ -48,6 +76,21 @@
       border-color: #5daf34;
       color: #FFF;
     }
+    @include when(plain) {
+      color: #67C23A;
+      background: #f0f9eb;
+      border-color: #c2e7b0;
+      &:hover {
+        background: #67C23A;
+        border-color: #67C23A;
+        color: #FFF;
+      }
+      &:active {
+        background: #5daf34;
+        border-color: #5daf34;
+        color: #FFF;
+      }
+    }
   }
 
   @include m(warning) {
@@ -63,6 +106,21 @@
       background: #cf9236;
       border-color: #cf9236;
       color: #FFF;
+    }
+    @include when(plain) {
+      color: #E6A23C;
+      background: #fdf6ec;
+      border-color: #f5dab1;
+      &:hover {
+        background: #E6A23C;
+        border-color: #E6A23C;
+        color: #FFF;
+      }
+      &:active {
+        background: #cf9236;
+        border-color: #cf9236;
+        color: #FFF;
+      }
     }
   }
 
@@ -80,6 +138,21 @@
       border-color: #dd6161;
       color: #FFF;
     }
+    @include when(plain) {
+      color: #F56C6C;
+      background: #fef0f0;
+      border-color: #fbc4c4;
+      &:hover {
+        background: #F56C6C;
+        border-color: #F56C6C;
+        color: #FFF;
+      }
+      &:active {
+        background: #dd6161;
+        border-color: #dd6161;
+        color: #FFF;
+      }
+    }
   }
 
   @include m(info) {
@@ -95,6 +168,21 @@
       background: #82848a;
       border-color: #82848a;
       color: #FFF;
+    }
+    @include when(plain) {
+      color: #909399;
+      background: #f4f4f5;
+      border-color: #d3d4d6;
+      &:hover {
+        background: #909399;
+        border-color: #909399;
+        color: #FFF;
+      }
+      &:active {
+        background: #82848a;
+        border-color: #82848a;
+        color: #FFF;
+      }
     }
   }
 }

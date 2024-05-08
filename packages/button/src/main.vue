@@ -1,5 +1,10 @@
 <template>
-    <button class="ell-button" :class="type? 'ell-button--' + type: ''">
+    <button class="ell-button" :class="[
+        type? 'ell-button--' + type: '',
+        {
+          'is-plain': plain
+        }
+    ]">
       <slot></slot>
     </button>
 </template>
@@ -10,7 +15,8 @@
           type: {
             type: String,
             default: 'default'
-          }
+          },
+          plain: Boolean
       }
     }
 </script>
