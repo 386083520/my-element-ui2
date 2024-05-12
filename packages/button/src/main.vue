@@ -7,6 +7,7 @@
           'is-circle': circle
         }
     ]">
+      <i :class="icon" v-if="icon"></i>
       <slot></slot>
     </button>
 </template>
@@ -20,7 +21,11 @@
           },
           plain: Boolean,
           round: Boolean,
-          circle: Boolean
+          circle: Boolean,
+          icon: {
+            type: String,
+            default: ''
+          }
       }
     }
 </script>
