@@ -3,7 +3,8 @@
         type? 'ell-button--' + type: '',
         {
           'is-plain': plain,
-          'is-round': round
+          'is-round': round,
+          'is-circle': circle
         }
     ]">
       <slot></slot>
@@ -18,7 +19,8 @@
             default: 'default'
           },
           plain: Boolean,
-          round: Boolean
+          round: Boolean,
+          circle: Boolean
       }
     }
 </script>
