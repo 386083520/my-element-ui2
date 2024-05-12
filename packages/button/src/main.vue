@@ -8,7 +8,7 @@
         }
     ]">
       <i :class="icon" v-if="icon"></i>
-      <slot></slot>
+      <span v-if="$slots.default"><slot></slot></span>
     </button>
 </template>
 <script>
