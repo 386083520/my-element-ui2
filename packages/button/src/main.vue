@@ -4,9 +4,11 @@
         {
           'is-plain': plain,
           'is-round': round,
-          'is-circle': circle
+          'is-circle': circle,
+          'is-loading': loading
         }
     ]">
+      <i class="el-icon-loading"  v-if="loading"></i>
       <i :class="icon" v-if="icon"></i>
       <span v-if="$slots.default"><slot></slot></span>
     </button>
@@ -25,7 +27,8 @@
           icon: {
             type: String,
             default: ''
-          }
+          },
+        loading: Boolean
       }
     }
 </script>
