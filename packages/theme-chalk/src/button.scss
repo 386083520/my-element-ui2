@@ -306,5 +306,20 @@
       }
     }
   }
+
+  @include m(text) {
+    border-color: transparent;
+    color: #409eff;
+    &:hover {
+      color: #66b1ff;
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &.is-disabled {
+      &,&:hover {
+        border-color: transparent;
+      }
+    }
+  }
 }
 
