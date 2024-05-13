@@ -1,11 +1,15 @@
 <template>
-    <button class="ell-button" :class="[
+    <button
+        :disabled="disabled"
+        class="ell-button"
+        :class="[
         type? 'ell-button--' + type: '',
         {
           'is-plain': plain,
           'is-round': round,
           'is-circle': circle,
-          'is-loading': loading
+          'is-loading': loading,
+          'is-disabled': disabled
         }
     ]">
       <i class="el-icon-loading"  v-if="loading"></i>
@@ -28,7 +32,8 @@
             type: String,
             default: ''
           },
-        loading: Boolean
+        loading: Boolean,
+        disabled: Boolean
       }
     }
 </script>
