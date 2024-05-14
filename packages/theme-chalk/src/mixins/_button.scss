@@ -1,8 +1,61 @@
+@import "../common/var.scss";
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
   &.is-round {
     padding: $padding-vertical $padding-horizontal;
+  }
+}
+
+@mixin button-plain($color) {
+  color: $color;
+  background: mix($--color-write, $color, 90%);
+  border-color: mix($--color-write, $color, 60%);
+  &:hover {
+    background: $color;
+    border-color: $color;
+    color: $--color-write;
+  }
+  &:active {
+    background: mix($--color-black, $color, $--button-active-shade-percent);
+    border-color: mix($--color-black, $color, $--button-active-shade-percent);
+    color: $--color-write;
+  }
+  &.is-disabled {
+    &,&:hover,&:active {
+      color: mix($--color-write, $color, 40%);
+      background-color: mix($--color-write, $color, 90%);
+      border-color: mix($--color-write, $color, 80%);
+
+    }
+  }
+
+}
+
+
+@mixin button-variant($color, $background-color, $border-color) {
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+  &.is-disabled {
+    &,&:hover,&:active {
+      color: $--color-write;
+      background-color: mix($background-color, $--color-write);
+      border-color: mix($border-color, $--color-write);
+    }
+  }
+  &:hover {
+    background: mix($--color-write, $background-color, $--button-hover-tint-percent);
+    border-color: mix($--color-write, $border-color, $--button-hover-tint-percent);
+    color: $color;
+  }
+  &:active {
+    background: mix($--color-black, $background-color, $--button-active-shade-percent);
+    border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
+    color: $color;
+  }
+  &.is-plain {
+    @include button-plain($background-color);
   }
 }

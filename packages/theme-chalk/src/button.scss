@@ -82,228 +82,23 @@
   }
 
   @include m(primary) {
-    color: #FFF;
-    background-color: #409EFF;
-    border-color: #409EFF;
-    @include when(disabled) {
-      &,&:hover,&:active {
-        color: #fff;
-        background-color: #a0cfff;
-        border-color: #a0cfff;
-      }
-      &.is-plain {
-        &,&:hover,&:active {
-          background-color: #ecf6ff;
-          border-color: #d9ecff;
-          color: #8cc5ff;
-        }
-      }
-    }
-    &:hover {
-      background: #66b1ff;
-      border-color: #66b1ff;
-      color: #FFF;
-    }
-    &:active {
-      background: #3a8ee6;
-      border-color: #3a8ee6;
-      color: #FFF;
-    }
-    @include when(plain) {
-      color: #409EFF;
-      background: #ecf5ff;
-      border-color: #b3d8ff;
-      &:hover {
-        background: #409EFF;
-        border-color: #409EFF;
-        color: #FFF;
-      }
-      &:active {
-        background: #3a8ee6;
-        border-color: #3a8ee6;
-        color: #FFF;
-      }
-    }
+    @include button-variant(#FFF, #409EFF, #409EFF);
   }
 
   @include m(success) {
-    color: #FFF;
-    background-color: #67C23A;
-    border-color: #67C23A;
-    @include when(disabled) {
-      &,&:hover,&:active {
-        color: #fff;
-        background-color: #b3e19d;
-        border-color: #b3e19d;
-      }
-      &.is-plain {
-        &,&:hover,&:active {
-          background-color: #f0f9eb;
-          border-color: #e1f3d8;
-          color: #a4da89;
-        }
-      }
-    }
-    &:hover {
-      background: #85ce61;
-      border-color: #85ce61;
-      color: #FFF;
-    }
-    &:active {
-      background: #5daf34;
-      border-color: #5daf34;
-      color: #FFF;
-    }
-    @include when(plain) {
-      color: #67C23A;
-      background: #f0f9eb;
-      border-color: #c2e7b0;
-      &:hover {
-        background: #67C23A;
-        border-color: #67C23A;
-        color: #FFF;
-      }
-      &:active {
-        background: #5daf34;
-        border-color: #5daf34;
-        color: #FFF;
-      }
-    }
+    @include button-variant(#FFF, #67C23A, #67C23A);
   }
 
   @include m(warning) {
-    color: #FFF;
-    background-color: #E6A23C;
-    border-color: #E6A23C;
-    @include when(disabled) {
-      &,&:hover,&:active {
-        color: #fff;
-        background-color: #f3d19e;
-        border-color: #f3d19e;
-      }
-      &.is-plain {
-        &,&:hover,&:active {
-          background-color: #fdf6ec;
-          border-color: #faecd8;
-          color: #f0c78a;
-        }
-      }
-    }
-    &:hover {
-      background: #ebb563;
-      border-color: #ebb563;
-      color: #FFF;
-    }
-    &:active {
-      background: #cf9236;
-      border-color: #cf9236;
-      color: #FFF;
-    }
-    @include when(plain) {
-      color: #E6A23C;
-      background: #fdf6ec;
-      border-color: #f5dab1;
-      &:hover {
-        background: #E6A23C;
-        border-color: #E6A23C;
-        color: #FFF;
-      }
-      &:active {
-        background: #cf9236;
-        border-color: #cf9236;
-        color: #FFF;
-      }
-    }
+    @include button-variant(#FFF, #E6A23C, #E6A23C);
   }
 
   @include m(danger) {
-    color: #FFF;
-    background-color: #F56C6C;
-    border-color: #F56C6C;
-    @include when(disabled) {
-      &,&:hover,&:active {
-        color: #fff;
-        background-color: #fab6b6;
-        border-color: #fab6b6;
-      }
-      &.is-plain {
-        &,&:hover,&:active {
-          background-color: #fef0f0;
-          border-color: #fde2e2;
-          color: #f9a7a7;
-        }
-      }
-    }
-    &:hover {
-      background: #f78989;
-      border-color: #f78989;
-      color: #FFF;
-    }
-    &:active {
-      background: #dd6161;
-      border-color: #dd6161;
-      color: #FFF;
-    }
-    @include when(plain) {
-      color: #F56C6C;
-      background: #fef0f0;
-      border-color: #fbc4c4;
-      &:hover {
-        background: #F56C6C;
-        border-color: #F56C6C;
-        color: #FFF;
-      }
-      &:active {
-        background: #dd6161;
-        border-color: #dd6161;
-        color: #FFF;
-      }
-    }
+    @include button-variant(#FFF, #F56C6C, #F56C6C);
   }
 
   @include m(info) {
-    color: #FFF;
-    background-color: #909399;
-    border-color: #909399;
-    @include when(disabled) {
-      &,&:hover,&:active {
-        color: #fff;
-        background-color: #c8c9cc;
-        border-color: #c8c9cc;
-      }
-      &.is-plain {
-        &,&:hover,&:active {
-          background-color: #f4f4f5;
-          border-color: #e9e9eb;
-          color: #bcbec2;
-        }
-      }
-    }
-    &:hover {
-      background: #a6a9ad;
-      border-color: #a6a9ad;
-      color: #FFF;
-    }
-    &:active {
-      background: #82848a;
-      border-color: #82848a;
-      color: #FFF;
-    }
-    @include when(plain) {
-      color: #909399;
-      background: #f4f4f5;
-      border-color: #d3d4d6;
-      &:hover {
-        background: #909399;
-        border-color: #909399;
-        color: #FFF;
-      }
-      &:active {
-        background: #82848a;
-        border-color: #82848a;
-        color: #FFF;
-      }
-    }
+    @include button-variant(#FFF, #909399, #909399);
   }
 
   @include m(text) {
