@@ -4,6 +4,7 @@
         class="ell-button"
         :class="[
         type? 'ell-button--' + type: '',
+        size? 'ell-button--' + size: '',
         {
           'is-plain': plain,
           'is-round': round,
@@ -33,7 +34,8 @@
             default: ''
           },
         loading: Boolean,
-        disabled: Boolean
+        disabled: Boolean,
+        size: String
       }
     }
 </script>

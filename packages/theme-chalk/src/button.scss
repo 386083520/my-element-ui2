@@ -321,5 +321,39 @@
       }
     }
   }
+
+  @include m(medium) {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    @include when(round) {
+      padding: 10px 20px;
+    }
+    @include when(circle) {
+      padding: 10px;
+    }
+  }
+
+  @include m(small) {
+    font-size: 12px;
+    padding: 9px 15px;
+    @include when(round) {
+      padding: 9px 15px;
+    }
+    @include when(circle) {
+      padding: 9px;
+    }
+  }
+
+  @include m(mini) {
+    font-size: 12px;
+    padding: 7px 15px;
+    @include when(round) {
+      padding: 7px 15px;
+    }
+    @include when(circle) {
+      padding: 7px;
+    }
+  }
 }
 
