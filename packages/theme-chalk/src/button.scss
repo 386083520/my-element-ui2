@@ -1,14 +1,13 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
+@import "./mixins/button.scss";
 @include b(button) {
   background: #fff;
   border: 1px solid #DCDFE6;
   color: #606266;
-  padding: 12px 20px;
-  border-radius: 4px;
-  font-size: 14px;
   cursor: pointer;
   line-height: 1;
+  @include button-size(12px,20px,14px,4px);
   & + & {
     margin-left: 10px;
   }
@@ -323,34 +322,21 @@
   }
 
   @include m(medium) {
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 4px;
-    @include when(round) {
-      padding: 10px 20px;
-    }
+    @include button-size(10px,20px,14px,4px);
     @include when(circle) {
       padding: 10px;
     }
   }
 
   @include m(small) {
-    font-size: 12px;
-    padding: 9px 15px;
-    @include when(round) {
-      padding: 9px 15px;
-    }
+    @include button-size(9px,15px,12px,3px);
     @include when(circle) {
       padding: 9px;
     }
   }
 
   @include m(mini) {
-    font-size: 12px;
-    padding: 7px 15px;
-    @include when(round) {
-      padding: 7px 15px;
-    }
+    @include button-size(7px,15px,12px,3px);
     @include when(circle) {
       padding: 7px;
     }
