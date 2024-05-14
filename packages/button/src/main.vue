@@ -2,6 +2,7 @@
     <button
         :disabled="disabled"
         class="ell-button"
+        @click="handleClick"
         :class="[
         type? 'ell-button--' + type: '',
         size? 'ell-button--' + size: '',
@@ -36,6 +37,11 @@
         loading: Boolean,
         disabled: Boolean,
         size: String
+      },
+      methods: {
+        handleClick(evt) {
+          this.$emit('click', evt)
+        }
       }
     }
 </script>
