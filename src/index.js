@@ -4,13 +4,15 @@ import Badge from "../packages/badge/index.js"
 import Row from "../packages/row/index.js"
 import Col from "../packages/col/index.js"
 import Button from "../packages/button/index.js"
+import ButtonGroup from "../packages/button-group/index.js"
 
 const components = [
    Card,
    Badge,
    Row,
    Col,
-   Button
+   Button,
+   ButtonGroup
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
