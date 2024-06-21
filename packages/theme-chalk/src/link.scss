@@ -26,8 +26,16 @@ $typeMap: (
   @include when(disabled) {
     cursor: not-allowed;
   }
+  & [class*='el-icon-'] {
+    & + span {
+      margin-left: 5px;
+    }
+  }
   &.ell-link--default {
     color: #606266;
+    &:hover {
+      color: #3a8ee6;
+    }
     @include when(disabled) {
       color: #C0C4CC;
     }
@@ -35,6 +43,9 @@ $typeMap: (
   @each $type,$primaryColor in $typeMap {
     &.ell-link--#{$type} {
       color: $primaryColor;
+      &:hover {
+        color: mix($primaryColor, #fff, 80%);
+      }
       @include when(disabled) {
         color: mix($primaryColor, #fff, 50%);
       }

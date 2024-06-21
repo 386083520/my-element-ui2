@@ -8,7 +8,8 @@
         disabled && 'is-disabled'
     ]"
        :href="disabled? null: href">
-      <slot></slot>
+      <i :class="icon" v-if="icon"></i>
+      <span><slot></slot></span>
     </a>
 </template>
 <script>
@@ -24,7 +25,8 @@
           default: true
         },
         disabled: Boolean,
-        href: String
+        href: String,
+        icon: String
       },
       methods: {
         handleClick(event) {
