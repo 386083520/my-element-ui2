@@ -1,7 +1,8 @@
 <template>
     <a :class="[
         'ell-link',
-        type? `ell-link--${type}`: ''
+        type? `ell-link--${type}`: '',
+        underline && 'is-underline'
     ]" href="www.baidu.com">
       <slot></slot>
     </a>
@@ -13,7 +14,11 @@
           type: {
             type: String,
             default: 'default'
-          }
+          },
+        underline: {
+            type: Boolean,
+          default: true
+        }
       }
     }
 </script>
