@@ -2,7 +2,8 @@
     <a :class="[
         'ell-link',
         type? `ell-link--${type}`: '',
-        underline && 'is-underline'
+        underline && 'is-underline',
+        disabled && 'is-disabled'
     ]" href="www.baidu.com">
       <slot></slot>
     </a>
@@ -18,7 +19,8 @@
         underline: {
             type: Boolean,
           default: true
-        }
+        },
+        disabled: Boolean
       }
     }
 </script>
