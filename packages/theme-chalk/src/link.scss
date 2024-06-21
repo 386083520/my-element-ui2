@@ -1,4 +1,19 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(link) {    
+$typeMap: (
+        priamry: #409EFF,
+        success: #67C23A,
+        warning: #E6A23C,
+        danger: #F56C6C,
+        info: #909399
+);
+@include b(link) {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  @each $type,$primaryColor in $typeMap {
+    &.ell-link--#{$type} {
+      color: $primaryColor;
+    }
+  }
 }

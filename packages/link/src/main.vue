@@ -1,10 +1,19 @@
 <template>
-    <a class="ell-link" href="www.baidu.com">
+    <a :class="[
+        'ell-link',
+        type? `ell-link--${type}`: ''
+    ]" href="www.baidu.com">
       <slot></slot>
     </a>
 </template>
 <script>
     export default {
-        name: 'EllLink'
+        name: 'EllLink',
+      props: {
+          type: {
+            type: String,
+            default: 'default'
+          }
+      }
     }
 </script>
