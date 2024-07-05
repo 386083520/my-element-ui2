@@ -17,7 +17,7 @@ ${ComponentName}.install = function(Vue) {
 export default ${ComponentName}`
     },
     {
-        filename: 'src/main.vue',
+        filename: 'src/main.js',
         content: `<template>
     <div class="ell-${componentname}">
     </div>

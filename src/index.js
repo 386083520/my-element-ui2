@@ -6,6 +6,7 @@ import Col from "../packages/col/index.js"
 import Button from "../packages/button/index.js"
 import ButtonGroup from "../packages/button-group/index.js"
 import Link from "../packages/link/index.js"
+import Scrollbar from "../packages/scrollbar/index.js"
 
 const components = [
    Card,
@@ -14,7 +15,8 @@ const components = [
    Col,
    Button,
    ButtonGroup,
-   Link
+   Link,
+   Scrollbar
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
