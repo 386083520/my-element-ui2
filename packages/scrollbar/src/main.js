@@ -1,7 +1,8 @@
+import scrollbarWidth from "../../../src/utils/scrollbar-width";
 export default {
     name: 'EllScrollbar',
     render(h) {
-        let gutter = 17
+        let gutter = scrollbarWidth()
         const gutterWidth = `-${gutter}px`
         const gutterStyle = `margin-right:${gutterWidth};`
         const  view = h('div', {
