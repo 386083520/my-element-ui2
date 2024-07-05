@@ -2,8 +2,29 @@
 @import "./mixins/mixins.scss";
 @include b(scrollbar) {
   overflow: hidden;
+  position: relative;
   @include e(wrap) {
     height: 100%;
     overflow: scroll;
+  }
+  @include e(thumb) {
+    background-color: #909399;
+    height: 0;
+    width: 0;
+    border-radius: inherit;
+  }
+  @include e(bar) {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    border-radius: 4px;
+    @include when(vertical) {
+      width: 6px;
+      > div {
+        width: 100%;
+        height: 50px;
+      }
+    }
   }
 }

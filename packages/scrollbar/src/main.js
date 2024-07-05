@@ -14,7 +14,7 @@ export default {
         }, this.$slots.default)
 
         const wrap = (
-            <div style={gutterStyle} className={['ell-scrollbar__wrap']}>
+            <div style={gutterStyle} class={['ell-scrollbar__wrap']}>
                 {[view]}
             </div>
         )
