@@ -1,4 +1,9 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(scrollbar) {    
+@include b(scrollbar) {
+  overflow: hidden;
+  @include e(wrap) {
+    height: 100%;
+    overflow: scroll;
+  }
 }
