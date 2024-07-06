@@ -23,7 +23,6 @@ export default {
     methods: {
         clickTrackHandler(e) {
             const offset = Math.abs(e.clientY - e.target.getBoundingClientRect().top)
-            console.log()
             const thumbHalf = (this.$refs.thumb.offsetHeight/2)
             const thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el.offsetHeight
             this.wrap.scrollTop = thumbPositionPercentage * this.wrap.scrollHeight / 100

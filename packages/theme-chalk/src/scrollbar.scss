@@ -8,10 +8,14 @@
     overflow: scroll;
   }
   @include e(thumb) {
-    background-color: #909399;
+    background-color: rgba(#909399, 0.3);
     height: 0;
     width: 0;
     border-radius: inherit;
+    transition: 0.3s background-color;
+    &:hover {
+      background-color: rgba(#909399, 0.5);
+    }
   }
   @include e(bar) {
     position: absolute;
