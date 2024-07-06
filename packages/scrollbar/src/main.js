@@ -7,7 +7,8 @@ export default {
     },
     data() {
         return {
-            sizeHeight: '30%'
+            sizeHeight: '0',
+            moveY: 0
         }
     },
     computed: {
@@ -24,7 +25,7 @@ export default {
         }, this.$slots.default)
 
         const wrap = (
-            <div style={gutterStyle} class={['ell-scrollbar__wrap']} ref="wrap">
+            <div style={gutterStyle} class={['ell-scrollbar__wrap']} ref="wrap" onScroll={ this.handleScroll }>
                 {[view]}
             </div>
         )
@@ -33,7 +34,7 @@ export default {
         if(!this.native) {
             nodes = ([
                 wrap,
-                <Bar size={this.sizeHeight}></Bar>
+                <Bar size={this.sizeHeight} move={this.moveY}></Bar>
             ])
         }else {
             nodes = ([
@@ -51,6 +52,10 @@ export default {
             if(!wrap) return;
             heightPercentage = (wrap.clientHeight * 100 / wrap.scrollHeight)
             this.sizeHeight = (heightPercentage < 100) ? (heightPercentage + '%'):''
+        },
+        handleScroll() {
+            const wrap = this.wrap;
+            this.moveY = (wrap.scrollTop*100/wrap.clientHeight)
         }
     },
     mounted() {

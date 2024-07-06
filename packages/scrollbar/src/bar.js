@@ -3,13 +3,14 @@ import { renderThumbStyle } from "./util";
 export default {
     name: 'Bar',
     props: {
-        size: String
+        size: String,
+        move: Number
     },
     render(h) {
-        const { size } = this;
+        const { size, move } = this;
         return (
             <div class={['ell-scrollbar__bar', 'is-vertical']}>
-                <div class='ell-scrollbar__thumb' style={ renderThumbStyle({size}) }>
+                <div class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move}) }>
                 </div>
             </div>
         )
