@@ -31,19 +31,26 @@ export default {
         },
         clickThumbHandler(e) {
             this.startDrag(e)
+            this.Y = e.currentTarget.offsetHeight - (e.clientY - e.currentTarget.getBoundingClientRect().top)
         },
         startDrag(e) {
             this.cursorDown = true
             document.addEventListener('mousemove', this.mouseMoveDocumentHandler)
             document.addEventListener('mouseup', this.mouseUpDocumentHandler)
+            document.onselectstart = () => false
         },
         mouseMoveDocumentHandler(e) {
             if(this.cursorDown === false) return
-            console.log("move")
+            const offset = ((this.$el.getBoundingClientRect().top - e.clientY) * -1)
+            const thumbClickPosition = this.$refs.thumb.offsetHeight - this.Y
+            const thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el.offsetHeight
+            this.wrap.scrollTop = thumbPositionPercentage * this.wrap.scrollHeight / 100
         },
         mouseUpDocumentHandler(e) {
             this.cursorDown = false
             console.log("up")
+            document.removeEventListener('mousemove', this.mouseUpDocumentHandler)
+            document.onselectstart = null
         }
     },
     destoryed() {
