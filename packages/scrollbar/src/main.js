@@ -5,6 +5,16 @@ export default {
     props: {
         native: Boolean
     },
+    data() {
+        return {
+            sizeHeight: '30%'
+        }
+    },
+    computed: {
+        wrap() {
+            return this.$refs.wrap;
+        }
+    },
     render(h) {
         let gutter = scrollbarWidth()
         const gutterWidth = `-${gutter}px`
@@ -14,7 +24,7 @@ export default {
         }, this.$slots.default)
 
         const wrap = (
-            <div style={gutterStyle} class={['ell-scrollbar__wrap']}>
+            <div style={gutterStyle} class={['ell-scrollbar__wrap']} ref="wrap">
                 {[view]}
             </div>
         )
@@ -23,7 +33,7 @@ export default {
         if(!this.native) {
             nodes = ([
                 wrap,
-                <Bar></Bar>
+                <Bar size={this.sizeHeight}></Bar>
             ])
         }else {
             nodes = ([
@@ -33,5 +43,17 @@ export default {
             ])
         }
         return h('div', { class: 'ell-scrollbar' }, nodes)
+    },
+    methods: {
+        update() {
+            let heightPercentage;
+            const  wrap = this.wrap;
+            if(!wrap) return;
+            heightPercentage = (wrap.clientHeight * 100 / wrap.scrollHeight)
+            this.sizeHeight = (heightPercentage < 100) ? (heightPercentage + '%'):''
+        }
+    },
+    mounted() {
+        this.$nextTick(this.update())
     }
 }
