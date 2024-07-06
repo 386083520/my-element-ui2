@@ -15,7 +15,9 @@ export default {
         const { size, move } = this;
         return (
             <div class={['ell-scrollbar__bar', 'is-vertical']} onMousedown={this.clickTrackHandler}>
-                <div ref="thumb" class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move}) }>
+                <div
+                    onMousedown={ this.clickThumbHandler }
+                    ref="thumb" class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move}) }>
                 </div>
             </div>
         )
@@ -26,6 +28,25 @@ export default {
             const thumbHalf = (this.$refs.thumb.offsetHeight/2)
             const thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el.offsetHeight
             this.wrap.scrollTop = thumbPositionPercentage * this.wrap.scrollHeight / 100
+        },
+        clickThumbHandler(e) {
+            this.startDrag(e)
+        },
+        startDrag(e) {
+            this.cursorDown = true
+            document.addEventListener('mousemove', this.mouseMoveDocumentHandler)
+            document.addEventListener('mouseup', this.mouseUpDocumentHandler)
+        },
+        mouseMoveDocumentHandler(e) {
+            if(this.cursorDown === false) return
+            console.log("move")
+        },
+        mouseUpDocumentHandler(e) {
+            this.cursorDown = false
+            console.log("up")
         }
+    },
+    destoryed() {
+        document.removeEventListener('mouseup', this.mouseUpDocumentHandler)
     }
 }
