@@ -15,15 +15,18 @@ export default {
         const { size, move } = this;
         return (
             <div class={['ell-scrollbar__bar', 'is-vertical']} onMousedown={this.clickTrackHandler}>
-                <div class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move}) }>
+                <div ref="thumb" class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move}) }>
                 </div>
             </div>
         )
     },
     methods: {
         clickTrackHandler(e) {
-            console.log(e)
-            this.wrap.scrollTop = 500
+            const offset = Math.abs(e.clientY - e.target.getBoundingClientRect().top)
+            console.log()
+            const thumbHalf = (this.$refs.thumb.offsetHeight/2)
+            const thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el.offsetHeight
+            this.wrap.scrollTop = thumbPositionPercentage * this.wrap.scrollHeight / 100
         }
     }
 }
