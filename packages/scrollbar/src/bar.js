@@ -1,23 +1,27 @@
-import { renderThumbStyle } from "./util";
+import {BAR_MAP, renderThumbStyle} from "./util";
 
 export default {
     name: 'Bar',
     props: {
+        vertical: Boolean,
         size: String,
         move: Number
     },
     computed: {
         wrap() {
             return this.$parent.wrap
+        },
+        bar() {
+            return BAR_MAP[this.vertical? 'vertical' : 'horizontal']
         }
     },
     render(h) {
-        const { size, move } = this;
+        const { size, move, bar } = this;
         return (
-            <div class={['ell-scrollbar__bar', 'is-vertical']} onMousedown={this.clickTrackHandler}>
+            <div class={['ell-scrollbar__bar', 'is-' + bar.key]} onMousedown={this.clickTrackHandler}>
                 <div
                     onMousedown={ this.clickThumbHandler }
-                    ref="thumb" class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move}) }>
+                    ref="thumb" class='ell-scrollbar__thumb' style={ renderThumbStyle({size, move, bar}) }>
                 </div>
             </div>
         )

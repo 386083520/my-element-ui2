@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             sizeHeight: '0',
-            moveY: 0
+            moveY: 0,
+            sizeWidth: '0',
+            moveX: 0
         }
     },
     computed: {
@@ -19,7 +21,7 @@ export default {
     render(h) {
         let gutter = scrollbarWidth()
         const gutterWidth = `-${gutter}px`
-        const gutterStyle = `margin-right:${gutterWidth};`
+        const gutterStyle = `margin-bottom:${gutterWidth};margin-right:${gutterWidth};`
         const  view = h('div', {
             class: ['ell-scrollbar__view']
         }, this.$slots.default)
@@ -34,7 +36,8 @@ export default {
         if(!this.native) {
             nodes = ([
                 wrap,
-                <Bar size={this.sizeHeight} move={this.moveY}></Bar>
+                <Bar size={this.sizeWidth} move={this.moveX}></Bar>,
+                <Bar vertical size={this.sizeHeight} move={this.moveY}></Bar>
             ])
         }else {
             nodes = ([
@@ -47,15 +50,18 @@ export default {
     },
     methods: {
         update() {
-            let heightPercentage;
+            let heightPercentage,widthPercentage;
             const  wrap = this.wrap;
             if(!wrap) return;
             heightPercentage = (wrap.clientHeight * 100 / wrap.scrollHeight)
+            widthPercentage = (wrap.clientWidth * 100 / wrap.scrollWidth)
             this.sizeHeight = (heightPercentage < 100) ? (heightPercentage + '%'):''
+            this.sizeWidth = (widthPercentage < 100) ? (widthPercentage + '%'):''
         },
         handleScroll() {
             const wrap = this.wrap;
             this.moveY = (wrap.scrollTop*100/wrap.clientHeight)
+            this.moveX = (wrap.scrollLeft*100/wrap.clientWidth)
         }
     },
     mounted() {
