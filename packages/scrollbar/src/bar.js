@@ -28,14 +28,14 @@ export default {
     },
     methods: {
         clickTrackHandler(e) {
-            const offset = Math.abs(e.clientY - e.target.getBoundingClientRect().top)
-            const thumbHalf = (this.$refs.thumb.offsetHeight/2)
-            const thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el.offsetHeight
-            this.wrap.scrollTop = thumbPositionPercentage * this.wrap.scrollHeight / 100
+            const offset = Math.abs(e[this.bar.client] - e.target.getBoundingClientRect()[this.bar.direction])
+            const thumbHalf = (this.$refs.thumb[this.bar.offset]/2)
+            const thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el[this.bar.offset]
+            this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100
         },
         clickThumbHandler(e) {
             this.startDrag(e)
-            this.Y = e.currentTarget.offsetHeight - (e.clientY - e.currentTarget.getBoundingClientRect().top)
+            this[this.bar.axis] = e.currentTarget[this.bar.offset] - (e[this.bar.client] - e.currentTarget.getBoundingClientRect()[this.bar.direction])
         },
         startDrag(e) {
             this.cursorDown = true
@@ -45,10 +45,10 @@ export default {
         },
         mouseMoveDocumentHandler(e) {
             if(this.cursorDown === false) return
-            const offset = ((this.$el.getBoundingClientRect().top - e.clientY) * -1)
-            const thumbClickPosition = this.$refs.thumb.offsetHeight - this.Y
-            const thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el.offsetHeight
-            this.wrap.scrollTop = thumbPositionPercentage * this.wrap.scrollHeight / 100
+            const offset = ((this.$el.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]) * -1)
+            const thumbClickPosition = this.$refs.thumb[this.bar.offset] - this[this.bar.axis]
+            const thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el[this.bar.offset]
+            this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100
         },
         mouseUpDocumentHandler(e) {
             this.cursorDown = false
