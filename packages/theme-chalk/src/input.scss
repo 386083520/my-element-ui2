@@ -22,4 +22,16 @@
       color: #c0c4cc;
     }
   }
+
+  @include when(disabled) {
+    .ell-input__inner {
+      background-color: #F5F7FA;
+      border-color: #E4E7ED;
+      color: #c0c4cc;
+      cursor: not-allowed;
+      &::placeholder {
+        color: #c0c4cc;
+      }
+    }
+  }
 }
