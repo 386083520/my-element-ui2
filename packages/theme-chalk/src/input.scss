@@ -18,5 +18,8 @@
     &:focus {
       border-color: #409eff;
     }
+    &::placeholder {
+      color: #c0c4cc;
+    }
   }
 }
