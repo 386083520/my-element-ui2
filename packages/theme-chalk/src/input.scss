@@ -1,4 +1,22 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(input) {    
+@include b(input) {
+  width: 100%;
+  @include e(inner) {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #DCDFE6;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+    color: #606266;
+    border-radius: 4px;
+    &:hover {
+      border-color: #C0C4CC;
+    }
+    &:focus {
+      border-color: #409eff;
+    }
+  }
 }
