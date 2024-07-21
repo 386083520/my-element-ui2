@@ -42,6 +42,7 @@
         </template>
         <textarea
             v-else
+            ref="textarea"
             class="ell-textarea__inner"
             v-bind="$attrs"
             @input="handleInput"
@@ -53,6 +54,7 @@
     </div>
 </template>
 <script>
+import calcTextareaHeight from "./calcTextareaHeight";
 export default {
     name: 'EllInput',
     props: {
@@ -117,9 +119,8 @@ export default {
         },
         resizeTextarea() {
             const { autosize } = this;
-            this.textareaCalStyle = {
-                height: '200px'
-            }
+            this.textareaCalStyle = calcTextareaHeight(this.$refs.textarea)
+            console.log(this.textareaCalStyle)
         }
     },
     watch: {
