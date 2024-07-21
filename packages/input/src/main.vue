@@ -1,6 +1,6 @@
 <template>
     <div :class="[
-        'ell-input',
+        type === 'textarea' ? 'ell-textarea': 'ell-input',
         {
           'is-disabled': inputDisabled,
           'ell-input--suffix': $slots.suffix || suffixIcon || showPassword || clearable,
@@ -42,6 +42,8 @@
         </template>
         <textarea
             v-else
+            class="ell-textarea__inner"
+            v-bind="$attrs"
         >
 
         </textarea>

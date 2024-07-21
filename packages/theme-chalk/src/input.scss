@@ -77,3 +77,29 @@
     }
   }
 }
+
+@include b(textarea) {
+  width: 100%;
+  font-size: 14px;
+  @include e(inner) {
+    width: 100%;
+    border: 1px solid #DCDFE6;
+    border-radius: 4px;
+    color: #606266;
+    font-size: inherit;
+    resize: vertical;
+    outline: 0;
+    line-height: 1.5;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    &:hover {
+      border-color: #c0c4cc;
+    }
+    &:focus {
+      border-color: #409eff;
+    }
+    &::placeholder {
+      color: #c0c4cc;
+    }
+  }
+}
