@@ -64,5 +64,7 @@ export default function calcTextareaHeight(targetElement, minRows = 1, maxRows =
         result.maxHeight = `${maxHeight}px`
     }
     result.height = `${height}px`
+    hiddenTextarea.parentNode && hiddenTextarea.parentNode.removeChild(hiddenTextarea)
+    hiddenTextarea = null
     return result
 }
