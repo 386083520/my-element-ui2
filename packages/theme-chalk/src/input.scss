@@ -56,4 +56,10 @@
     line-height: 40px;
     text-align: center;
   }
+
+  @include m(suffix) {
+    .ell-input__inner {
+      padding-right: 30px;
+    }
+  }
 }

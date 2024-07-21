@@ -2,7 +2,8 @@
     <div :class="[
         'ell-input',
         {
-          'is-disabled': inputDisabled
+          'is-disabled': inputDisabled,
+          'ell-input--suffix': showPassword || clearable
         }
     ]">
         <input
