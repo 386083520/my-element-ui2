@@ -3,7 +3,8 @@
         'ell-input',
         {
           'is-disabled': inputDisabled,
-          'ell-input--suffix': showPassword || clearable
+          'ell-input--suffix': showPassword || clearable,
+          'ell-input--prefix': $slots.prefix || prefixIcon
         }
     ]">
         <input
@@ -14,17 +15,21 @@
             @input="handleInput"
             :type="showPassword ? (passwordVisible ? 'text': 'password'): 'text'"
         />
+        <span class="ell-input__prefix">
+            <slot name="prefix"></slot>
+            <i v-if="prefixIcon" :class="prefixIcon" class="ell-input__icon"></i>
+        </span>
         <span class="ell-input__suffix">
-        <span class="ell-input__suffix-inner">
-          <template>
-              <slot name="suffix"></slot>
-              <i v-if="suffixIcon" :class="suffixIcon" class="ell-input__icon"></i>
-          </template>
-          <i
-              v-if="showClear"
-              class="el-icon-circle-close ell-input__icon ell-input__clear"
-              @click="clear"
-          ></i>
+            <span class="ell-input__suffix-inner">
+              <template>
+                  <slot name="suffix"></slot>
+                  <i v-if="suffixIcon" :class="suffixIcon" class="ell-input__icon"></i>
+              </template>
+              <i
+                  v-if="showClear"
+                  class="el-icon-circle-close ell-input__icon ell-input__clear"
+                  @click="clear"
+              ></i>
             <i
                 v-if="showPwdVisible"
                 class="el-icon-view ell-input__icon ell-input__clear"
@@ -49,7 +54,8 @@ export default {
             type: Boolean,
             default: false
         },
-        suffixIcon: String
+        suffixIcon: String,
+        prefixIcon: String
     },
     data() {
         return {
