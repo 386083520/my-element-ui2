@@ -16,6 +16,8 @@
         />
         <span class="ell-input__suffix">
         <span class="ell-input__suffix-inner">
+          <i v-if="suffixIcon" :class="suffixIcon" class="ell-input__icon">
+          </i>
           <i
               v-if="showClear"
               class="el-icon-circle-close ell-input__icon ell-input__clear"
@@ -44,7 +46,8 @@ export default {
         showPassword: {
             type: Boolean,
             default: false
-        }
+        },
+        suffixIcon: String
     },
     data() {
         return {
