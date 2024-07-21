@@ -44,6 +44,8 @@
             v-else
             class="ell-textarea__inner"
             v-bind="$attrs"
+            @input="handleInput"
+            :style="textareaCalStyle"
         >
 
         </textarea>
@@ -69,11 +71,16 @@ export default {
         type: {
             type: String,
             default: 'text'
+        },
+        autosize: {
+            type: [Boolean, Object],
+            default: false
         }
     },
     data() {
         return {
-            passwordVisible: false
+            passwordVisible: false,
+            textareaCalStyle: {}
         }
     },
     computed: {
@@ -107,11 +114,20 @@ export default {
         },
         getSuffixVisible() {
             return this.$slots.suffix || this.suffixIcon || this.showClear || this.showPassword
+        },
+        resizeTextarea() {
+            const { autosize } = this;
+            this.textareaCalStyle = {
+                height: '200px'
+            }
         }
     },
     watch: {
         nativeInputValue() {
             this.setNativeInputValue()
+        },
+        value(val) {
+            this.$nextTick(this.resizeTextarea)
         }
     }
 }
