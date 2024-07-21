@@ -29,19 +29,40 @@ const CONTEXT_STYLE = [
 
 function calculateNodeStyling(targetElement) {
     const  style = window.getComputedStyle(targetElement)
+    const paddingSize = (parseFloat(style.getPropertyValue('padding-bottom')) +
+        parseFloat(style.getPropertyValue('padding-top')))
+    const boxSizing = style.getPropertyValue('box-sizing')
+    const borderSize = (
+        parseFloat(style.getPropertyValue('border-bottom-width'))+
+        parseFloat(style.getPropertyValue('border-top-width'))
+    )
     const contextStyle = CONTEXT_STYLE.map(name => `${name}:${style.getPropertyValue(name)}`).join(';')
-    return { contextStyle }
+    return { contextStyle, paddingSize, boxSizing, borderSize }
 }
-export default function calcTextareaHeight(targetElement) {
+export default function calcTextareaHeight(targetElement, minRows = 1, maxRows = null) {
     if(!hiddenTextarea) {
         hiddenTextarea = document.createElement('textarea')
         document.body.appendChild(hiddenTextarea)
     }
-    let { contextStyle } = calculateNodeStyling(targetElement)
+    let { contextStyle, paddingSize, boxSizing, borderSize } = calculateNodeStyling(targetElement)
     hiddenTextarea.setAttribute('style', `${contextStyle}`)
     hiddenTextarea.value = targetElement.value || targetElement.placeholder || ''
     let height = hiddenTextarea.scrollHeight
     const result = {}
+    hiddenTextarea.value = ''
+    let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize
+    if(minRows!==null) {
+        let minHeight = singleRowHeight * minRows
+        minHeight = minHeight + paddingSize + borderSize
+        height = Math.max(minHeight, height)
+        result.minHeight = `${minHeight}px`
+    }
+    if(maxRows!==null) {
+        let maxHeight = singleRowHeight * maxRows
+        maxHeight = maxHeight + paddingSize + borderSize
+        height = Math.min(maxHeight, height)
+        result.maxHeight = `${maxHeight}px`
+    }
     result.height = `${height}px`
     return result
 }

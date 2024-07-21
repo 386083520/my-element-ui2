@@ -119,7 +119,15 @@ export default {
         },
         resizeTextarea() {
             const { autosize } = this;
-            this.textareaCalStyle = calcTextareaHeight(this.$refs.textarea)
+            if(!autosize) {
+                this.textareaCalStyle = {
+                    minHeight: calcTextareaHeight(this.$refs.textarea).minHeight
+                }
+                return
+            }
+            const minRows = autosize.minRows;
+            const maxRows = autosize.maxRows;
+            this.textareaCalStyle = calcTextareaHeight(this.$refs.textarea,minRows,maxRows)
             console.log(this.textareaCalStyle)
         }
     },
