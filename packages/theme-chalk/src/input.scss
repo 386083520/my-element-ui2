@@ -2,6 +2,15 @@
 @import "./mixins/mixins.scss";
 @include b(input) {
   width: 100%;
+  position: relative;
+  & .ell-input__clear {
+    cursor: pointer;
+    font-size: 14px;
+    color: #c0c4cc;
+    &:hover {
+      color: #909399;
+    }
+  }
   @include e(inner) {
     height: 40px;
     line-height: 40px;
@@ -33,5 +42,18 @@
         color: #c0c4cc;
       }
     }
+  }
+
+  @include e(suffix) {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    height: 100%;
+  }
+  @include e(icon) {
+    height: 100%;
+    width: 25px;
+    line-height: 40px;
+    text-align: center;
   }
 }

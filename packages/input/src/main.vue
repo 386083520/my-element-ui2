@@ -10,6 +10,11 @@
           v-bind="$attrs"
           :disabled="inputDisabled"
       />
+      <span class="ell-input__suffix">
+        <span class="ell-input__suffix-inner">
+          <i class="el-icon-circle-close ell-input__icon ell-input__clear"></i>
+        </span>
+      </span>
     </div>
 </template>
 <script>
