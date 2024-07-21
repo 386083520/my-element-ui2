@@ -7,19 +7,20 @@
           'ell-input--prefix': $slots.prefix || prefixIcon
         }
     ]">
-        <input
-            ref="input"
-            class="ell-input__inner"
-            v-bind="$attrs"
-            :disabled="inputDisabled"
-            @input="handleInput"
-            :type="showPassword ? (passwordVisible ? 'text': 'password'): 'text'"
-        />
-        <span class="ell-input__prefix" v-if="$slots || prefixIcon">
+        <template v-if="type !== 'textarea'">
+            <input
+                ref="input"
+                class="ell-input__inner"
+                v-bind="$attrs"
+                :disabled="inputDisabled"
+                @input="handleInput"
+                :type="showPassword ? (passwordVisible ? 'text': 'password'): 'text'"
+            />
+            <span class="ell-input__prefix" v-if="$slots || prefixIcon">
             <slot name="prefix"></slot>
             <i v-if="prefixIcon" :class="prefixIcon" class="ell-input__icon"></i>
         </span>
-        <span class="ell-input__suffix" v-if="getSuffixVisible()">
+            <span class="ell-input__suffix" v-if="getSuffixVisible()">
             <span class="ell-input__suffix-inner">
               <template>
                   <slot name="suffix"></slot>
@@ -38,6 +39,13 @@
             </i>
         </span>
       </span>
+        </template>
+        <textarea
+            v-else
+        >
+
+        </textarea>
+
     </div>
 </template>
 <script>
@@ -55,7 +63,11 @@ export default {
             default: false
         },
         suffixIcon: String,
-        prefixIcon: String
+        prefixIcon: String,
+        type: {
+            type: String,
+            default: 'text'
+        }
     },
     data() {
         return {
