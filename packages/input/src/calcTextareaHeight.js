@@ -45,7 +45,7 @@ export default function calcTextareaHeight(targetElement, minRows = 1, maxRows =
         document.body.appendChild(hiddenTextarea)
     }
     let { contextStyle, paddingSize, boxSizing, borderSize } = calculateNodeStyling(targetElement)
-    hiddenTextarea.setAttribute('style', `${contextStyle}`)
+    hiddenTextarea.setAttribute('style', `${contextStyle};${HIDDEN_STYLE}`)
     hiddenTextarea.value = targetElement.value || targetElement.placeholder || ''
     let height = hiddenTextarea.scrollHeight
     const result = {}
