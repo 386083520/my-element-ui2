@@ -16,8 +16,10 @@
         />
         <span class="ell-input__suffix">
         <span class="ell-input__suffix-inner">
-          <i v-if="suffixIcon" :class="suffixIcon" class="ell-input__icon">
-          </i>
+          <template>
+              <slot name="suffix"></slot>
+              <i v-if="suffixIcon" :class="suffixIcon" class="ell-input__icon"></i>
+          </template>
           <i
               v-if="showClear"
               class="el-icon-circle-close ell-input__icon ell-input__clear"
