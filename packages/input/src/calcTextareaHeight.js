@@ -29,7 +29,7 @@ const CONTEXT_STYLE = [
 
 function calculateNodeStyling(targetElement) {
     const  style = window.getComputedStyle(targetElement)
-    const contextStyle = CONTEXT_STYLE.map(name => `${name}:${style.getPropertyValue(name)}`)
+    const contextStyle = CONTEXT_STYLE.map(name => `${name}:${style.getPropertyValue(name)}`).join(';')
     return { contextStyle }
 }
 export default function calcTextareaHeight(targetElement) {
