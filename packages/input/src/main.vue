@@ -138,6 +138,9 @@ export default {
         value(val) {
             this.$nextTick(this.resizeTextarea)
         }
+    },
+    mounted() {
+        this.resizeTextarea()
     }
 }
 </script>
