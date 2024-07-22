@@ -4,10 +4,15 @@
         {
           'is-disabled': inputDisabled,
           'ell-input--suffix': $slots.suffix || suffixIcon || showPassword || clearable,
-          'ell-input--prefix': $slots.prefix || prefixIcon
+          'ell-input--prefix': $slots.prefix || prefixIcon,
+          'ell-input-group': $slots.prepend || $slots.append,
+          'ell-input-group--prepend': $slots.prepend
         }
     ]">
         <template v-if="type !== 'textarea'">
+            <div v-if="$slots.prepend" class="ell-input-group__prepend">
+                <slot name="prepend"></slot>
+            </div>
             <input
                 ref="input"
                 class="ell-input__inner"
@@ -118,7 +123,10 @@ export default {
             return this.$slots.suffix || this.suffixIcon || this.showClear || this.showPassword
         },
         resizeTextarea() {
-            const { autosize } = this;
+            const { autosize, type } = this;
+            if(type !== 'textarea') {
+                return;
+            }
             if(!autosize) {
                 this.textareaCalStyle = {
                     minHeight: calcTextareaHeight(this.$refs.textarea).minHeight
