@@ -110,16 +110,7 @@
   > .ell-input__inner {
     display: table-cell;
   }
-  @include e(prepend) {
-    display: table-cell;
-    background: #F5F7FA;
-    color: #909399;
-    border: 1px solid #DCDFE6;
-    border-radius: 4px;
-    padding: 0 20px;
-    width: 1px;
-  }
-  @include e(append) {
+  @include e((prepend, append)) {
     display: table-cell;
     background: #F5F7FA;
     color: #909399;

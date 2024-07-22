@@ -7,8 +7,12 @@
 }
 
 @mixin e($element) {
-    $currentSelector: $B + "__" + $element;
-    .#{$currentSelector} {
+    // .ell-input-group__prepend,.ell-input-group__append
+    $currentSelector: '';
+    @each $unit in $element {
+        $currentSelector: #{$currentSelector + '.' + $B + "__" + $unit + ','}
+    }
+    #{$currentSelector} {
         @content
     }
 }
