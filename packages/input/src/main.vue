@@ -46,7 +46,7 @@
             </i>
             <span v-if="isWordLimitVisible" class="ell-input__count">
                 <span class="ell-input__count-inner">
-                    10/100
+                    {{textLength}}/{{upperLimit}}
                 </span>
             </span>
         </span>
@@ -65,7 +65,7 @@
         >
 
         </textarea>
-        <span v-if="isWordLimitVisible && type === 'textarea'" class="ell-input__count">10/100</span>
+        <span v-if="isWordLimitVisible && type === 'textarea'" class="ell-input__count">{{textLength}}/{{upperLimit}}</span>
     </div>
 </template>
 <script>
@@ -123,6 +123,12 @@ export default {
         },
         isWordLimitVisible() {
             return this.showWordLimit && (this.type === 'text' || this.type === 'textarea') && !this.showPassword && !this.inputDisabled
+        },
+        upperLimit() {
+            return this.$attrs.maxlength
+        },
+        textLength() {
+            return (this.value || '').length
         }
     },
     methods: {
