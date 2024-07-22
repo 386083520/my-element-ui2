@@ -6,7 +6,8 @@
           'ell-input--suffix': $slots.suffix || suffixIcon || showPassword || clearable,
           'ell-input--prefix': $slots.prefix || prefixIcon,
           'ell-input-group': $slots.prepend || $slots.append,
-          'ell-input-group--prepend': $slots.prepend
+          'ell-input-group--prepend': $slots.prepend,
+          'ell-input-group--append': $slots.append
         }
     ]">
         <template v-if="type !== 'textarea'">
@@ -44,6 +45,9 @@
             </i>
         </span>
       </span>
+            <div class="ell-input-group__append" v-if="$slots.append">
+                <slot name="append"></slot>
+            </div>
         </template>
         <textarea
             v-else

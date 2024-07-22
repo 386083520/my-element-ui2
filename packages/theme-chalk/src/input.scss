@@ -119,6 +119,15 @@
     padding: 0 20px;
     width: 1px;
   }
+  @include e(append) {
+    display: table-cell;
+    background: #F5F7FA;
+    color: #909399;
+    border: 1px solid #DCDFE6;
+    border-radius: 4px;
+    padding: 0 20px;
+    width: 1px;
+  }
   @include e(prepend) {
     border-right: 0;
     border-top-right-radius: 0;
@@ -128,6 +137,17 @@
     .ell-input__inner {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+    }
+  }
+  @include e(append) {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  @include m(append) {
+    .ell-input__inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 }
