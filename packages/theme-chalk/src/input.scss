@@ -44,6 +44,37 @@
     }
   }
 
+  @include m(medium) {
+    font-size: 14px;
+    @include e(inner) {
+      height: 36px;
+      line-height: 36px;
+    }
+    .ell-input__icon {
+      line-height: 36px;
+    }
+  }
+  @include m(small) {
+    font-size: 13px;
+    @include e(inner) {
+      height: 32px;
+      line-height: 32px;
+    }
+    .ell-input__icon {
+      line-height: 32px;
+    }
+  }
+  @include m(mini) {
+    font-size: 12px;
+    @include e(inner) {
+      height: 28px;
+      line-height: 28px;
+    }
+    .ell-input__icon {
+      line-height: 28px;
+    }
+  }
+
   @include e(suffix) {
     position: absolute;
     right: 5px;

@@ -1,6 +1,7 @@
 <template>
     <div :class="[
         type === 'textarea' ? 'ell-textarea': 'ell-input',
+        inputSize ? 'ell-input--' + inputSize : '',
         {
           'is-disabled': inputDisabled,
           'ell-input--suffix': $slots.suffix || suffixIcon || showPassword || clearable,
@@ -86,7 +87,8 @@ export default {
         autosize: {
             type: [Boolean, Object],
             default: false
-        }
+        },
+        size: String
     },
     data() {
         return {
@@ -106,6 +108,9 @@ export default {
         },
         nativeInputValue() {
             return this.value === null || this.value === undefined ? '' : String(this.value)
+        },
+        inputSize() {
+            return this.size
         }
     },
     methods: {
