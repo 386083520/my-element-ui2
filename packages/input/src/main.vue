@@ -44,6 +44,11 @@
                 @click="handlePasswordVisible"
             >
             </i>
+            <span v-if="isWordLimitVisible" class="ell-input__count">
+                <span class="ell-input__count-inner">
+                    10/100
+                </span>
+            </span>
         </span>
       </span>
             <div class="ell-input-group__append" v-if="$slots.append">
@@ -60,7 +65,7 @@
         >
 
         </textarea>
-
+        <span v-if="isWordLimitVisible && type === 'textarea'" class="ell-input__count">10/100</span>
     </div>
 </template>
 <script>
@@ -88,7 +93,11 @@ export default {
             type: [Boolean, Object],
             default: false
         },
-        size: String
+        size: String,
+        showWordLimit: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
@@ -111,6 +120,9 @@ export default {
         },
         inputSize() {
             return this.size
+        },
+        isWordLimitVisible() {
+            return this.showWordLimit && (this.type === 'text' || this.type === 'textarea') && !this.showPassword && !this.inputDisabled
         }
     },
     methods: {
@@ -129,7 +141,7 @@ export default {
             this.passwordVisible = !this.passwordVisible
         },
         getSuffixVisible() {
-            return this.$slots.suffix || this.suffixIcon || this.showClear || this.showPassword
+            return this.$slots.suffix || this.suffixIcon || this.showClear || this.showPassword || this.isWordLimitVisible
         },
         resizeTextarea() {
             const { autosize, type } = this;
