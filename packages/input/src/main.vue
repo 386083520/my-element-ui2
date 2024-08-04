@@ -21,6 +21,9 @@
                 v-bind="$attrs"
                 :disabled="inputDisabled"
                 @input="handleInput"
+                @compositionstart="handleCompositionStart"
+                @compositionupdate="handleCompositionUpdate"
+                @compositionend="handleCompositionEnd"
                 :type="showPassword ? (passwordVisible ? 'text': 'password'): 'text'"
             />
             <span class="ell-input__prefix" v-if="$slots || prefixIcon">
@@ -102,7 +105,8 @@ export default {
     data() {
         return {
             passwordVisible: false,
-            textareaCalStyle: {}
+            textareaCalStyle: {},
+            isComposing: false
         }
     },
     computed: {
@@ -133,6 +137,7 @@ export default {
     },
     methods: {
         handleInput(event) {
+            if(this.isComposing) return;
             this.$emit('input', event.target.value)
         },
         clear() {
@@ -164,6 +169,20 @@ export default {
             const maxRows = autosize.maxRows;
             this.textareaCalStyle = calcTextareaHeight(this.$refs.textarea,minRows,maxRows)
             console.log(this.textareaCalStyle)
+        },
+        handleCompositionStart(e) {
+            this.isComposing = true
+            this.$emit('compositionstart', e)
+        },
+        handleCompositionUpdate(e) {
+            this.$emit('compositionupdate', e)
+        },
+        handleCompositionEnd(e) {
+            this.$emit('compositionend', e)
+            if(this.isComposing) {
+                this.isComposing = false
+                this.handleInput(e)
+            }
         }
     },
     watch: {
