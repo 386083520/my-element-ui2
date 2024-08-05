@@ -1,4 +1,41 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(input-number) {    
+@include b(input-number) {
+  width: 180px;
+  position: relative;
+  line-height: 38px;
+  .ell-input {
+    &__inner {
+      padding-left: 50px;
+      padding-right: 50px;
+      text-align: center;
+    }
+  }
+  @include e((increase,decrease)) {
+    position: absolute;
+    width: 40px;
+    top: 1px;
+    z-index: 1;
+    text-align: center;
+    background: #f5f7fa;
+    color: #606266;
+    font-size: 13px;
+    cursor: pointer;
+    &:hover {
+      color: #409eff;
+      & ~ .ell-input  .ell-input__inner:not(.is-disabled) {
+        border-color: #409eff;
+      }
+    }
+  }
+  @include e(increase) {
+    right: 1px;
+    border-radius: 0 4px 4px 0;
+    border-left: solid 1px #dcdfe6;
+  }
+  @include e(decrease) {
+    left: 1px;
+    border-radius: 4px 0 0 4px;
+    border-right: solid 1px #dcdfe6;
+  }
 }
