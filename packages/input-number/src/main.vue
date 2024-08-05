@@ -15,6 +15,7 @@
         <ell-input
             :value="displayValue"
             @input="handleInput"
+            @change="handleInputChange"
         />
     </div>
 </template>
@@ -34,6 +35,13 @@
                 console.log(val)
                 this.$emit('input', val)
             },
+            handleInputChange(value) {
+                const newVal = Number(value)
+                console.log('change', newVal)
+                if(!isNaN(newVal)) {
+                    this.setCurrentValue(newVal)
+                }
+            },
             setCurrentValue(newVal) {
                 this.currentValue = newVal
                 this.$emit('input', newVal)
@@ -43,7 +51,8 @@
                 this.setCurrentValue(value + 1)
             },
             descrease() {
-
+                const value = this.value || 0
+                this.setCurrentValue(value - 1)
             }
         },
         computed: {

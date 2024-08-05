@@ -24,6 +24,7 @@
                 @compositionstart="handleCompositionStart"
                 @compositionupdate="handleCompositionUpdate"
                 @compositionend="handleCompositionEnd"
+                @change="handleChange"
                 :type="showPassword ? (passwordVisible ? 'text': 'password'): 'text'"
             />
             <span class="ell-input__prefix" v-if="$slots || prefixIcon">
@@ -65,6 +66,7 @@
             v-bind="$attrs"
             @input="handleInput"
             :style="textareaCalStyle"
+            @change="handleChange"
         >
 
         </textarea>
@@ -139,6 +141,9 @@ export default {
         handleInput(event) {
             if(this.isComposing) return;
             this.$emit('input', event.target.value)
+        },
+        handleChange(event) {
+            this.$emit('change', event.target.value)
         },
         clear() {
             this.$emit('input', '')
