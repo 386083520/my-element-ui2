@@ -27,13 +27,15 @@
         },
         data() {
             return {
-                currentValue: 0
+                currentValue: 0,
+                userInput: null
             }
         },
         methods: {
             handleInput(val) {
                 console.log(val)
-                this.$emit('input', val)
+                this.userInput = val
+                // this.$emit('input', val)
             },
             handleInputChange(value) {
                 const newVal = Number(value)
@@ -41,6 +43,7 @@
                 if(!isNaN(newVal)) {
                     this.setCurrentValue(newVal)
                 }
+                this.userInput = null
             },
             setCurrentValue(newVal) {
                 this.currentValue = newVal
@@ -57,8 +60,8 @@
         },
         computed: {
             displayValue() {
-                if(this.value) {
-                    return this.value
+                if(this.userInput !== null) {
+                    return this.userInput
                 }
                 return this.currentValue
             }
