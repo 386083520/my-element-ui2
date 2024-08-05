@@ -8,6 +8,7 @@
         </span>
         <ell-input
             :value="value"
+            @input="handleInput"
         />
     </div>
 </template>
@@ -16,6 +17,12 @@
         name: 'EllInputNumber',
         props: {
             value: {}
+        },
+        methods: {
+            handleInput(val) {
+                console.log(val)
+                this.$emit('input', val)
+            }
         }
     }
 </script>
