@@ -8,6 +8,7 @@ import ButtonGroup from "../packages/button-group/index.js"
 import Link from "../packages/link/index.js"
 import Scrollbar from "../packages/scrollbar/index.js"
 import Input from "../packages/input/index.js"
+import InputNumber from "../packages/input-number/index.js"
 
 const components = [
    Card,
@@ -18,7 +19,8 @@ const components = [
    ButtonGroup,
    Link,
    Scrollbar,
-   Input
+   Input,
+   InputNumber
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
