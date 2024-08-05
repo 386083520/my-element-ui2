@@ -143,8 +143,11 @@ export default {
         clear() {
             this.$emit('input', '')
         },
+        getInput() {
+            return this.$refs.input || this.$refs.textarea
+        },
         setNativeInputValue() {
-            const input = this.$refs.input
+            const input = this.getInput()
             if (!input) return
             input.value = this.nativeInputValue
         },
@@ -194,6 +197,7 @@ export default {
         }
     },
     mounted() {
+        this.setNativeInputValue()
         this.resizeTextarea()
     }
 }

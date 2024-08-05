@@ -6,11 +6,16 @@
         <span class="ell-input-number__increase">
             <i class="el-icon-plus"></i>
         </span>
-        <ell-input/>
+        <ell-input
+            :value="value"
+        />
     </div>
 </template>
 <script>
     export default {
-        name: 'EllInputNumber'
+        name: 'EllInputNumber',
+        props: {
+            value: {}
+        }
     }
 </script>
