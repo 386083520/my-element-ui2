@@ -25,6 +25,18 @@
         props: {
             value: {},
         },
+        watch: {
+            value: {
+                immediate: true,
+                handler(value) {
+                    console.log('handler')
+                    let newVal = Number(value)
+                    if(isNaN(newVal)) return
+                    this.setCurrentValue(newVal)
+                    this.userInput = null
+                }
+            }
+        },
         data() {
             return {
                 currentValue: 0,
@@ -63,6 +75,7 @@
                 if(this.userInput !== null) {
                     return this.userInput
                 }
+                console.log('val')
                 return this.currentValue
             }
         }
