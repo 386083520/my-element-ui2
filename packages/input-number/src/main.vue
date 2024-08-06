@@ -44,6 +44,12 @@
             step:{
                 type: Number,
                 default:1
+            },
+            precision: {
+                type: Number,
+                validator(val) {
+                    return val >= 0 && val === parseInt(val, 10)
+                }
             }
         },
         watch: {
@@ -111,7 +117,11 @@
                     return this.userInput
                 }
                 console.log('val')
-                return this.currentValue
+                let currentValue = this.currentValue
+                if(this.precision !== undefined) {
+                    currentValue = currentValue.toFixed(this.precision)
+                }
+                return currentValue
             },
             maxDisabled() {
                 return this._increase(this.value) > this.max
