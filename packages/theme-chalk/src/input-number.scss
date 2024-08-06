@@ -27,6 +27,10 @@
         border-color: #409eff;
       }
     }
+    &.is-disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+    }
   }
   @include e(increase) {
     right: 1px;

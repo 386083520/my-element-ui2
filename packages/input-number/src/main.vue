@@ -2,12 +2,14 @@
     <div class="ell-input-number">
         <span
             class="ell-input-number__decrease"
+            :class="{'is-disabled': minDisabled}"
             @click="descrease"
         >
             <i class="el-icon-minus"></i>
         </span>
         <span
             class="ell-input-number__increase"
+            :class="{'is-disabled': maxDisabled}"
             @click="increase"
         >
             <i class="el-icon-plus"></i>
