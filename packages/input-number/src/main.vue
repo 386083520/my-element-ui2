@@ -40,7 +40,11 @@
                 type: Number,
                 default: -Infinity
             },
-            disabled: Boolean
+            disabled: Boolean,
+            step:{
+                type: Number,
+                default:1
+            }
         },
         watch: {
             value: {
@@ -80,24 +84,25 @@
                 this.currentValue = newVal
                 this.$emit('input', newVal)
             },
-            _increase(val) {
+            _increase(val, step) {
                 if(typeof val !== 'number') return
-                return val + 1
+                return val + step
             },
-            _descrease(val) {
+            _descrease(val, step) {
                 if(typeof val !== 'number') return
-                return val - 1
+                return val - step
             },
             increase() {
                 if(this.maxDisabled || this.disabled) return
                 const value = this.value || 0
-                const newVal = this._increase(value)
+                const newVal = this._increase(value, this.step)
                 this.setCurrentValue(newVal)
             },
             descrease() {
                 if(this.minDisabled || this.disabled) return
                 const value = this.value || 0
-                this.setCurrentValue(value - 1)
+                const newVal = this._descrease(value, this.step)
+                this.setCurrentValue(newVal)
             }
         },
         computed: {
