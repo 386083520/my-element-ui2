@@ -1,5 +1,10 @@
 <template>
-    <div class="ell-input-number">
+    <div :class="[
+        'ell-input-number',
+        {
+            'is-disabled': disabled
+        }
+    ]">
         <span
             class="ell-input-number__decrease"
             :class="{'is-disabled': minDisabled}"
@@ -18,6 +23,7 @@
             :value="displayValue"
             @input="handleInput"
             @change="handleInputChange"
+            :disabled="disabled"
         />
     </div>
 </template>
@@ -33,7 +39,8 @@
             min: {
                 type: Number,
                 default: -Infinity
-            }
+            },
+            disabled: Boolean
         },
         watch: {
             value: {
@@ -82,13 +89,13 @@
                 return val - 1
             },
             increase() {
-                if(this.maxDisabled) return
+                if(this.maxDisabled || this.disabled) return
                 const value = this.value || 0
                 const newVal = this._increase(value)
                 this.setCurrentValue(newVal)
             },
             descrease() {
-                if(this.minDisabled) return
+                if(this.minDisabled || this.disabled) return
                 const value = this.value || 0
                 this.setCurrentValue(value - 1)
             }

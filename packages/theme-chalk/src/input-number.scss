@@ -23,7 +23,7 @@
     cursor: pointer;
     &:hover {
       color: #409eff;
-      & ~ .ell-input  .ell-input__inner:not(.is-disabled) {
+      &:not(.is-disabled) ~ .ell-input  .ell-input__inner:not(.is-disabled) {
         border-color: #409eff;
       }
     }
@@ -41,5 +41,14 @@
     left: 1px;
     border-radius: 4px 0 0 4px;
     border-right: solid 1px #dcdfe6;
+  }
+  @include when(disabled) {
+    @include e((increase,decrease)) {
+      border-color: #e4e7ed;
+      color: #e4e7ed;
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
   }
 }
