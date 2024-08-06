@@ -59,6 +59,7 @@
                     console.log('handler')
                     let newVal = Number(value)
                     if(isNaN(newVal)) return
+                    newVal = this.toPrecision(newVal, this.precision)
                     if(newVal >= this.max) newVal = this.max
                     if(newVal <= this.min) newVal = this.min
                     this.setCurrentValue(newVal)
@@ -73,6 +74,9 @@
             }
         },
         methods: {
+            toPrecision(num, precision) {
+                return parseFloat(Math.round(num * Math.pow(10, precision))/Math.pow(10, precision))
+            },
             handleInput(val) {
                 console.log(val)
                 this.userInput = val
