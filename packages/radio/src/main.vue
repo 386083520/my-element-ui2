@@ -10,6 +10,7 @@
             <input
                 class="ell-radio__original"
                 :disabled="disabled"
+                @change="handleChange"
                 type="radio" :value="label" v-model="model"/>
         </span>
         <span class="ell-radio__label">
@@ -53,7 +54,10 @@
         },
         methods: {
             handleChange(e) {
-                this.$emit('input', e.target.value)
+                this.$nextTick(() => {
+                    this.$emit('change', this.model)
+                    this.isGroup && this.dispatch('EllRadioGroup', 'handleChange', this.model)
+                })
             }
         }
     }
