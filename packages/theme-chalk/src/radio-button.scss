@@ -24,5 +24,12 @@
   @include e(orig-radio) {
     opacity: 0;
     position: absolute;
+    &:checked {
+      & + .ell-radio-button__inner {
+        color: #fff;
+        background-color: #409eff;
+        border-color: #409eff;
+      }
+    }
   }
 }
