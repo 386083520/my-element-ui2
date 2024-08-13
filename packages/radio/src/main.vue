@@ -2,7 +2,9 @@
     <label class="ell-radio">
         <span class="ell-radio__input">
             <span class="ell-radio__inner"></span>
-            <input type="radio" :value="label" v-model="model"/>
+            <input
+                class="ell-radio__original"
+                type="radio" :value="label" v-model="model"/>
         </span>
         <span class="ell-radio__label">
             <slot></slot>

@@ -1,4 +1,32 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(radio) {    
+@include b(radio) {
+  margin-right: 30px;
+  color: #606266;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  @include e(input) {
+    position: relative;
+    vertical-align: middle;
+  }
+  @include e(inner) {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border: 1px solid #dcdfe6;
+    border-radius: 100%;
+  }
+  @include e(original) {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  @include e(label) {
+    font-size: 14px;
+    padding-left: 10px;
+  }
 }
