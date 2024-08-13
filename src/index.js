@@ -11,6 +11,7 @@ import Input from "../packages/input/index.js"
 import InputNumber from "../packages/input-number/index.js"
 import Radio from "../packages/radio/index.js"
 import RadioGroup from "../packages/radio-group/index.js"
+import RadioButton from "../packages/radio-button/index.js"
 
 const components = [
    Card,
@@ -24,7 +25,8 @@ const components = [
    Input,
    InputNumber,
    Radio,
-   RadioGroup
+   RadioGroup,
+   RadioButton
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
