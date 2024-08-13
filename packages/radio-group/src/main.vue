@@ -5,6 +5,9 @@
 </template>
 <script>
     export default {
-        name: 'EllRadioGroup'
+        name: 'EllRadioGroup',
+        props: {
+            value: {}
+        }
     }
 </script>

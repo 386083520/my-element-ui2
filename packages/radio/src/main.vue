@@ -26,12 +26,26 @@
             disabled: Boolean
         },
         computed: {
+            isGroup() {
+                let parent = this.$parent
+                console.log('parent',parent.$options.name)
+                if(parent.$options.name === 'EllRadioGroup') {
+                    this._radioGroup = parent
+                    return true
+                }
+                return false
+            },
             model: {
                 set(val) {
-                    this.$emit('input', val)
+                    if(this.isGroup) {
+
+                    }else {
+                        this.$emit('input', val)
+                    }
+
                 },
                 get() {
-                    return this.value
+                    return this.isGroup? this._radioGroup.value : this.value
                 }
             }
         },
