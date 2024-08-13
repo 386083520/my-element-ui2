@@ -1,6 +1,10 @@
 <template>
     <label class="ell-radio">
-        <span class="ell-radio__input">
+        <span class="ell-radio__input"
+              :class="{
+                    'is-checked': model === label
+              }"
+        >
             <span class="ell-radio__inner"></span>
             <input
                 class="ell-radio__original"

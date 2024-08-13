@@ -9,6 +9,18 @@
   @include e(input) {
     position: relative;
     vertical-align: middle;
+    @include when(checked) {
+      .ell-radio__inner {
+        background: #409eff;
+        border-color: #409eff;
+        &::after {
+          transform: translate(-50%,-50%) scale(1);
+        }
+      }
+      & + .ell-radio__label {
+        color: #409eff;
+      }
+    }
   }
   @include e(inner) {
     width: 14px;
@@ -16,6 +28,18 @@
     display: inline-block;
     border: 1px solid #dcdfe6;
     border-radius: 100%;
+    position: relative;
+    &::after {
+      width: 4px;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 100%;
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%) scale(0);
+    }
   }
   @include e(original) {
     opacity: 0;
