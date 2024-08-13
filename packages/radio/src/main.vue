@@ -18,8 +18,10 @@
     </label>
 </template>
 <script>
+    import Emitter from "../../../src/mixins/emitter";
     export default {
         name: 'EllRadio',
+        mixins: [Emitter],
         props: {
             label: {},
             value: {},
@@ -38,7 +40,7 @@
             model: {
                 set(val) {
                     if(this.isGroup) {
-
+                        this.dispatch('EllRadioGroup', 'input', [val])
                     }else {
                         this.$emit('input', val)
                     }
