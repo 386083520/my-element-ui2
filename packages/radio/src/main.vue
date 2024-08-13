@@ -2,7 +2,8 @@
     <label class="ell-radio">
         <span class="ell-radio__input"
               :class="{
-                    'is-checked': model === label
+                    'is-checked': model === label,
+                    'is-disabled': disabled
               }"
         >
             <span class="ell-radio__inner"></span>
@@ -20,7 +21,8 @@
         name: 'EllRadio',
         props: {
             label: {},
-            value: {}
+            value: {},
+            disabled: Boolean
         },
         computed: {
             model: {

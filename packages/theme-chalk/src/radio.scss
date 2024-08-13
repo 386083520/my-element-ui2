@@ -9,6 +9,30 @@
   @include e(input) {
     position: relative;
     vertical-align: middle;
+    @include when(disabled) {
+      .ell-radio__inner {
+        background-color: #f5f7fa;
+        border-color: #f5f7fa;
+        cursor: not-allowed;
+        &::after {
+          cursor: not-allowed;
+          background-color: #f5f7fa;
+        }
+      }
+      &.is-checked {
+        .ell-radio__inner {
+          background-color: #f5f7fa;
+          border-color: #e4e7ed;
+          &::after {
+            background-color: #c0c4cc;
+          }
+        }
+      }
+      & + span.ell-radio__label {
+        color: #c0c4cc;
+        cursor: not-allowed;
+      }
+    }
     @include when(checked) {
       .ell-radio__inner {
         background: #409eff;
