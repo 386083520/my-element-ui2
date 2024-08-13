@@ -7,7 +7,8 @@
             v-model="value"
         />
         <span class="ell-radio-button__inner">
-
+            <slot></slot>
+            <template v-if="!$slots.default">{{label}}</template>
         </span>
     </label>
 </template>
