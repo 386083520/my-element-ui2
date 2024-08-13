@@ -9,5 +9,6 @@
   "scrollbar": "11",
   "input": "11",
   "input-number": "11",
-  "radio": "11"
+  "radio": "11",
+  "radio-group": "11"
 }

@@ -10,6 +10,7 @@ import Scrollbar from "../packages/scrollbar/index.js"
 import Input from "../packages/input/index.js"
 import InputNumber from "../packages/input-number/index.js"
 import Radio from "../packages/radio/index.js"
+import RadioGroup from "../packages/radio-group/index.js"
 
 const components = [
    Card,
@@ -22,7 +23,8 @@ const components = [
    Scrollbar,
    Input,
    InputNumber,
-   Radio
+   Radio,
+   RadioGroup
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
