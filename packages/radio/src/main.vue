@@ -2,7 +2,7 @@
     <label class="ell-radio">
         <span class="ell-radio__input">
             <span class="ell-radio__inner"></span>
-            <input type="radio" :value="label" :checked="value == label" @change="handleChange"/>
+            <input type="radio" :value="label" v-model="model"/>
         </span>
         <span class="ell-radio__label">
             <slot></slot>
@@ -15,6 +15,16 @@
         props: {
             label: {},
             value: {}
+        },
+        computed: {
+            model: {
+                set(val) {
+                    this.$emit('input', val)
+                },
+                get() {
+                    return this.value
+                }
+            }
         },
         methods: {
             handleChange(e) {
