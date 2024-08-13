@@ -9,6 +9,7 @@
             <span class="ell-radio__inner"></span>
             <input
                 class="ell-radio__original"
+                :disabled="disabled"
                 type="radio" :value="label" v-model="model"/>
         </span>
         <span class="ell-radio__label">
