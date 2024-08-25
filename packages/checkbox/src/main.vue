@@ -4,8 +4,7 @@
             <span class="ell-checkout__inner"></span>
             <input
                 type="checkbox"
-                :checked="value === true"
-                @change="handleChange"
+                v-model="model"
             />
         </span>
         <span class="ell-checkbox__label">
@@ -18,6 +17,16 @@
         name: 'EllCheckbox',
         props: {
             value: {}
+        },
+        computed: {
+            model: {
+                get() {
+                   return this.value
+                },
+                set(val) {
+                    this.$emit('input', val)
+                }
+            }
         },
         methods: {
             handleChange(e) {
