@@ -13,6 +13,9 @@
           transform: rotate(45deg) scaleY(1);
         }
       }
+      & + .ell-checkbox__label {
+        color: #409eff;
+      }
     }
   }
   @include e(inner) {
