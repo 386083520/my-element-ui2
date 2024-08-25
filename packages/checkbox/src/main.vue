@@ -1,8 +1,9 @@
 <template>
     <label class="ell-checkbox">
         <span class="ell-checkbox__input">
-            <span class="ell-checkout__inner"></span>
+            <span class="ell-checkbox__inner"></span>
             <input
+                class="ell-checkbox__original"
                 type="checkbox"
                 v-model="model"
             />

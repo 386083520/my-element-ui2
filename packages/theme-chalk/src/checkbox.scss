@@ -1,4 +1,29 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(checkbox) {    
+@include b(checkbox) {
+  @include e(input) {
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  @include e(inner) {
+    display: inline-block;
+    border: 1px solid #dcdfe6;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    &:hover {
+      border-color: #409eff;
+    }
+  }
+  @include e(original) {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  @include e(label) {
+    padding-left: 10px;
+    font-size: 14px;
+  }
 }
