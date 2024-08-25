@@ -1,6 +1,11 @@
 <template>
     <label class="ell-checkbox">
-        <span class="ell-checkbox__input">
+        <span
+            class="ell-checkbox__input"
+            :class="{
+                'is-checked': isChecked
+            }"
+        >
             <span class="ell-checkbox__inner"></span>
             <input
                 class="ell-checkbox__original"
@@ -27,6 +32,9 @@
                 set(val) {
                     this.$emit('input', val)
                 }
+            },
+            isChecked() {
+                return this.model
             }
         },
         methods: {

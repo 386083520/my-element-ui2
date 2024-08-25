@@ -5,6 +5,15 @@
     position: relative;
     vertical-align: middle;
     cursor: pointer;
+    @include when(checked) {
+      .ell-checkbox__inner {
+        background-color: #409eff;
+        border-color: #409eff;
+        &::after {
+          transform: rotate(45deg) scaleY(1);
+        }
+      }
+    }
   }
   @include e(inner) {
     display: inline-block;
@@ -12,8 +21,23 @@
     width: 14px;
     height: 14px;
     border-radius: 2px;
+    position: relative;
+    box-sizing: border-box;
     &:hover {
       border-color: #409eff;
+    }
+    &::after {
+      content: '';
+      height: 7px;
+      width: 3px;
+      border: 1px solid #fff;
+      position: absolute;
+      top: 1px;
+      left: 4px;
+      border-left: 0;
+      border-top: 0;
+      transform: rotate(45deg) scaleY(0);
+      transform-origin: center;
     }
   }
   @include e(original) {
