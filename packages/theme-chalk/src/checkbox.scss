@@ -1,10 +1,31 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
 @include b(checkbox) {
+  margin-right: 30px;
   @include e(input) {
     position: relative;
     vertical-align: middle;
     cursor: pointer;
+    @include when(disabled) {
+      .ell-checkbox__inner {
+        background-color: #edf2fc;
+        border-color: #dcdfe6;
+        cursor: not-allowed;
+      }
+      &.is-checked {
+        .ell-checkbox__inner {
+          background-color: #f2f6fc;
+          border-color: #dcdfe6;
+          &::after {
+            border-color: #c0c4cc;
+          }
+        }
+      }
+      & + span.ell-checkbox__label {
+        color: #c0c4cc;
+        cursor: not-allowed;
+      }
+    }
     @include when(checked) {
       .ell-checkbox__inner {
         background-color: #409eff;

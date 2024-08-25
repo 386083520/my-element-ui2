@@ -3,7 +3,8 @@
         <span
             class="ell-checkbox__input"
             :class="{
-                'is-checked': isChecked
+                'is-checked': isChecked,
+                'is-disabled': disabled
             }"
         >
             <span class="ell-checkbox__inner"></span>
@@ -22,7 +23,8 @@
     export default {
         name: 'EllCheckbox',
         props: {
-            value: {}
+            value: {},
+            disabled: Boolean
         },
         computed: {
             model: {
