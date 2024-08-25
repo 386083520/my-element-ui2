@@ -12,5 +12,6 @@
   "radio": "11",
   "radio-group": "11",
   "radio-button": "11",
-  "checkbox": "11"
+  "checkbox": "11",
+  "checkbox-group": "11"
 }

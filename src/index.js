@@ -13,6 +13,7 @@ import Radio from "../packages/radio/index.js"
 import RadioGroup from "../packages/radio-group/index.js"
 import RadioButton from "../packages/radio-button/index.js"
 import Checkbox from "../packages/checkbox/index.js"
+import CheckboxGroup from "../packages/checkbox-group/index.js"
 
 const components = [
    Card,
@@ -28,7 +29,8 @@ const components = [
    Radio,
    RadioGroup,
    RadioButton,
-   Checkbox
+   Checkbox,
+   CheckboxGroup
 ]
 function install(Vue, opts = {}) {
    components.forEach(component => {
