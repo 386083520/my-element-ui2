@@ -5,6 +5,7 @@
         @click.prevent="switchValue"
     >
         <input
+            ref="input"
             type="checkbox"
             class="ell-switch__input"
             @change="handleChange"
@@ -36,6 +37,11 @@
                 return this.value === this.activeValue
             }
         },
+        watch: {
+            checked() {
+                this.$refs.input.checked = this.checked
+            }
+        },
         methods: {
             handleChange() {
                 const val = this.checked ? this.inactiveValue: this.activeValue
@@ -44,6 +50,9 @@
             switchValue() {
                 this.handleChange()
             }
+        },
+        mounted() {
+            this.$refs.input.checked = this.checked
         }
     }
 </script>
