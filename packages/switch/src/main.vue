@@ -2,6 +2,7 @@
     <div
         class="ell-switch"
         :class="{ 'is-checked': checked }"
+        @click.prevent="switchValue"
     >
         <input
             type="checkbox"
@@ -39,6 +40,9 @@
             handleChange() {
                 const val = this.checked ? this.inactiveValue: this.activeValue
                 this.$emit('input', val)
+            },
+            switchValue() {
+                this.handleChange()
             }
         }
     }

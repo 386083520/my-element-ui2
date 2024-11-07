@@ -3,9 +3,11 @@
 @include b(switch) {
   position: relative;
   @include e(input)  {
-    z-index: 100;
     opacity: 0;
     position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
   }
   @include e(core) {
     display: inline-block;
