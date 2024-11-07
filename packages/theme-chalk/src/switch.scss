@@ -3,6 +3,7 @@
 @include b(switch) {
   position: relative;
   @include e(input)  {
+    z-index: 100;
     opacity: 0;
     position: absolute;
   }
