@@ -12,11 +12,11 @@
             :true-value="activeValue"
             :false-value="inactiveValue"
         />
-        <span :class="['ell-switch__label', 'ell-switch__label-left']" v-if="inactiveText">
+        <span :class="['ell-switch__label', 'ell-switch__label--left', !checked? 'is-active': '']" v-if="inactiveText">
             {{inactiveText}}
         </span>
         <span class="ell-switch__core"></span>
-        <span :class="['ell-switch__label', 'ell-switch__label-left']" v-if="activeText">
+        <span :class="['ell-switch__label', 'ell-switch__label--right', checked? 'is-active': '']" v-if="activeText">
             {{activeText}}
         </span>
     </div>

@@ -19,6 +19,7 @@
     background: #dcdfe6;
     box-sizing: border-box;
     cursor: pointer;
+    vertical-align: middle;
     &:after {
       content: '';
       position: absolute;
@@ -38,6 +39,24 @@
         left: 100%;
         margin-left: -17px;
       }
+    }
+  }
+  @include e(label) {
+    height: 20px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #303133;
+    vertical-align: middle;
+    @include m(left) {
+      margin-right: 10px;
+    }
+    @include m(right) {
+      margin-left: 10px;
+    }
+    @include when(active) {
+      color: #409eff;
     }
   }
 }
