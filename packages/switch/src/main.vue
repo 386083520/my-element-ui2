@@ -12,7 +12,13 @@
             :true-value="activeValue"
             :false-value="inactiveValue"
         />
+        <span :class="['ell-switch__label', 'ell-switch__label-left']" v-if="inactiveText">
+            {{inactiveText}}
+        </span>
         <span class="ell-switch__core"></span>
+        <span :class="['ell-switch__label', 'ell-switch__label-left']" v-if="activeText">
+            {{activeText}}
+        </span>
     </div>
 </template>
 <script>
@@ -30,7 +36,9 @@
             inactiveValue: {
                 type: [String, Number, Boolean],
                 default: false
-            }
+            },
+            activeText: String,
+            inactiveText: String,
         },
         computed: {
             checked() {
