@@ -1,4 +1,14 @@
 @import "./common/var.scss";
 @import "./mixins/mixins.scss";
-@include b(rate) {    
+@include b(rate) {
+  height: 20px;
+  line-height: 1;
+  @include e(item) {
+    display: inline-block;
+  }
+  @include e(icon) {
+    font-size: 18px;
+    margin-right: 6px;
+    color: #c0c4cc;
+  }
 }
