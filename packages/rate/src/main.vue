@@ -7,6 +7,7 @@
             :style="{ cursor:  'pointer' }"
             @mousemove="setCurrentValue(item)"
             @mouseleave="resetCurrentValue(item)"
+            @click="selectValue(item)"
         >
             <i
                 :class="[classes[item - 1], {'hover': hoverIndex === item}]"
@@ -21,9 +22,15 @@
 <script>
     export default {
         name: 'EllRate',
+        props: {
+            value: {
+                type: Number,
+                default: 0
+            }
+        },
         data() {
             return {
-                currentValue: 0,
+                currentValue: this.value,
                 hoverIndex: 0
             }
         },
@@ -46,13 +53,16 @@
                 this.hoverIndex = value
             },
             resetCurrentValue() {
-                this.currentValue = 0
+                this.currentValue = this.value
                 this.hoverIndex = 0
             },
             getIconStyle(item) {
                 return {
                     color: item <= this.currentValue ? '#F7BA2A' : '#C6D1DE'
                 }
+            },
+            selectValue(value) {
+                this.$emit('input', value)
             }
         }
     }
