@@ -10,5 +10,8 @@
     font-size: 18px;
     margin-right: 6px;
     color: #c0c4cc;
+    &.hover {
+      transform: scale(1.15);
+    }
   }
 }
