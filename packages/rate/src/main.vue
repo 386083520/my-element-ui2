@@ -14,7 +14,14 @@
                 class="ell-rate__icon"
                 :style="getIconStyle(item)"
             >
+                <i
+                    v-if="showDecimalIcon(item)"
+                    :class="decimalIconClass"
+                    :style="decimalStyle"
+                    class="ell-rate__decimal"
+                >
 
+                </i>
             </i>
         </span>
     </div>
@@ -26,6 +33,10 @@
             value: {
                 type: Number,
                 default: 0
+            },
+            allowHalf:  {
+                type: Boolean,
+                default: false
             }
         },
         data() {
@@ -38,13 +49,26 @@
             classes() {
                 let result = []
                 let i = 0;
-                for (; i < this.currentValue; i++) {
+                let threshold = this.currentValue
+                if(this.allowHalf && this.currentValue !== Math.floor(this.currentValue))  {
+                    threshold--
+                }
+                for (; i < threshold; i++) {
                     result.push('el-icon-star-on')
                 }
                 for (; i < 5; i++) {
                     result.push('el-icon-star-off')
                 }
                 return result
+            },
+            decimalIconClass() {
+                return 'el-icon-star-on'
+            },
+            decimalStyle() {
+                return {
+                    color: '#F7BA2A',
+                    width: '50%'
+                }
             }
         },
         methods: {
@@ -63,6 +87,9 @@
             },
             selectValue(value) {
                 this.$emit('input', value)
+            },
+            showDecimalIcon(item) {
+                return item == 2
             }
         }
     }

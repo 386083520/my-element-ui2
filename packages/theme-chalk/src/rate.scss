@@ -10,8 +10,17 @@
     font-size: 18px;
     margin-right: 6px;
     color: #c0c4cc;
+    position: relative;
     &.hover {
       transform: scale(1.15);
     }
+  }
+
+  @include e(decimal) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    overflow: hidden;
   }
 }
